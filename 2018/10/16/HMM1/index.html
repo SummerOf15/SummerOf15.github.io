@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="thesis notes," />
+  <meta name="keywords" content="thesis_notes," />
 
 
 
@@ -80,14 +80,14 @@
 
 
 <meta name="description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)  所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$ 所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$ 长度为T的状态序列$I$及对应的观测序列$O$: I=\{i_1,i_2,...">
-<meta name="keywords" content="thesis notes">
+<meta name="keywords" content="thesis_notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hidden Markov Model(隐马尔可夫模型)(一)">
 <meta property="og:url" content="https://summerof15.github.io/2018/10/16/HMM1/index.html">
 <meta property="og:site_name" content="code cooking">
 <meta property="og:description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)  所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$ 所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$ 长度为T的状态序列$I$及对应的观测序列$O$: I=\{i_1,i_2,...">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-17T03:09:22.781Z">
+<meta property="og:updated_time" content="2018-10-18T11:23:24.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hidden Markov Model(隐马尔可夫模型)(一)">
 <meta name="twitter:description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)  所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$ 所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$ 长度为T的状态序列$I$及对应的观测序列$O$: I=\{i_1,i_2,...">
@@ -320,7 +320,7 @@
 <li>所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$</li>
 <li>所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$</li>
 <li>长度为T的状态序列$I$及对应的观测序列$O$: <script type="math/tex">I=\{i_1,i_2,...,i_T\}$$$$O=\{O_1,O_2,...,O_T\}</script></li>
-<li>状态转移概率矩阵 $A=[a_{ij}]_{N \times N}$ 其中，$a_{ij}=P(i_{t+1}=q_j \mid i_t=q_i)$表示在时刻$t$处于状态$q_i$的条件下在时刻$t+1$转移到$q_j$的概率。 </li>
+<li>状态转移概率矩阵 $A=[a_{ij}]_{N \times N}$ 其中$a_{ij}=P(i_{t+1}=q_j \mid i_t=q_i)$表示在时刻$t$处于状态$q_i$的条件下在时刻$t+1$转移到$q_j$的概率。 </li>
 <li>观测概率矩阵 $B=[b_j(k)]_{N\times M}$ 其中,$b_j(k)=P(o_t=v_k \mid i_t=q_j)$$ k=1,2,…,M;j=1,2,…,N$<br>表示在时刻$t$处于状态$q_j$的条件下生成观测$v_k$的概率。</li>
 <li>$\pi$是初始概率向量 $\pi = (\pi_i)$ 其中,$\pi_i=P(i_1=q_i)$是时刻$t=1$处于状态$q_i$的概率。</li>
 </ul>
@@ -342,15 +342,29 @@
 <li>观测序列$O=\{红，白，白\}$</li>
 <li>$T=3$</li>
 </ul>
-<p>假设从box1取完球，再到box2取球的概率为$a_{12}$，并以此类推，则状态转移概率矩阵$A$为$$<br> \left[<br> \begin{matrix}<br>   a_{11} &amp; a_{12} &amp; a_{13} \\<br>   a_{21} &amp; a_{22} &amp; a_{23} \\<br>   a_{31} &amp; a_{32} &amp; a_{33}<br>  \end{matrix}<br>  \right]</p>
+<p>假设从box1取完球，再到box2取球的概率为$a_{12}$，并以此类推，则状态转移概率矩阵$A$为</p>
 <script type="math/tex; mode=display">
-
-假设在box1中摸到白球的概率为$P_{1白}$，摸到红球的概率为$P_{1红}$,以此类推。则观测概率矩阵$B$为</script><p> \left[<br> \begin{matrix}<br>   P_{1白} &amp; P_{1红}\\<br>   P_{2白} &amp; P_{2红}\\<br>   P_{3白} &amp; P_{3红}<br>  \end{matrix}<br>  \right]</p>
+ \left[
+ \begin{matrix}
+   a_{11} & a_{12} & a_{13} \\
+   a_{21} & a_{22} & a_{23} \\
+   a_{31} & a_{32} & a_{33}
+  \end{matrix}
+  \right]</script><p>假设在box1中摸到白球的概率为$P_{1白}$，摸到红球的概率为$P_{1红}$,以此类推。则观测概率矩阵$B$为</p>
 <script type="math/tex; mode=display">
-
-假如第一次去box1取球的概率为$\pi_1$，第一次去box2取球的概率为$\pi_2$，第一次去box3取球的概率为$\pi_3$，那么初始概率向量$\pi$可以表示为：</script><p> \left[<br> \begin{matrix}<br>   \pi_1 &amp; \pi_2 &amp; \pi_3<br>  \end{matrix}<br>  \right]</p>
-<p>$$</p>
-
+ \left[
+ \begin{matrix}
+   P_{1白} & P_{1红}\\
+   P_{2白} & P_{2红}\\
+   P_{3白} & P_{3红}
+  \end{matrix}
+  \right]</script><p>假如第一次去box1取球的概率为$\pi_1$，第一次去box2取球的概率为$\pi_2$，第一次去box3取球的概率为$\pi_3$，那么初始概率向量$\pi$可以表示为：</p>
+<script type="math/tex; mode=display">
+ \left\{
+ \begin{matrix}
+   \pi_1 & \pi_2 & \pi_3
+  \end{matrix}
+  \right\}</script>
       
     </div>
     
@@ -367,7 +381,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/thesis-notes/" rel="tag"># thesis notes</a>
+            <a href="/tags/thesis-notes/" rel="tag"># thesis_notes</a>
           
         </div>
       
@@ -482,7 +496,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>

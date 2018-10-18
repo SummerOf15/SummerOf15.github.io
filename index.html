@@ -319,15 +319,15 @@
 <li>学习：在训练数据上通过极大似然估计得到一个最符合的条件概率模型$\hat{P}(Y|X)$</li>
 <li>预测：利用训练好的条件概率模型$\hat{P}(Y|X)$，输入序列X，获得概率最大的$\hat{y}$</li>
 </ul>
-<h4 id="2-CRF的表示"><a href="#2-CRF的表示" class="headerlink" title="2. CRF的表示"></a>2. CRF的表示</h4><p>线性链条件随机场的参数化形式为：<br><img src="https://github.com/SummerOf15/SummerOf15.github.io/blob/master/images/linear_chain_crf.png" alt="linear chain CRF"><br><img src="https://github.com/SummerOf15/SummerOf15.github.io/blob/master/images/zx.png" alt="Z(x)"><br>其中，$t_k$和$S_l$是特征函数，$t_k$表示转移特征(transition function)，$S_l$表示状态特征函数，通常两个函数取值为1或者0. Z(x)为规范化因子(normalization factor)，相当于对所有输出的统计，使得最终结果在1以内。$\lambda_k,\mu_l$为权重，是将来学习的参数。<br>这个式子可以用在这个例子中：在一个标注问题中，输入观测序列为$X=(X_1,X_2,X_3)$，输出序列为$Y=(Y_1,Y_2,Y_3)$，取值为{1,2}，现在给相应的特征函数$t_k$和$s_l$以及对应的权值$\lambda_k,\mu_l$，求对于给定的观测序列<em>x</em>,输出标记序列为y=(1,2,2)的概率。(具体问题请参考李航 统计学习方法)</p>
+<h4 id="2-CRF的表示"><a href="#2-CRF的表示" class="headerlink" title="2. CRF的表示"></a>2. CRF的表示</h4><p>线性链条件随机场的参数化形式为：<br><img src="images/linear_chain_crf.png" alt="linear chain CRF"><br><img src="images/zx.png" alt="Z(x)"><br>其中，$t_k$和$S_l$是特征函数，$t_k$表示转移特征(transition function)，$S_l$表示状态特征函数，通常两个函数取值为1或者0. Z(x)为规范化因子(normalization factor)，相当于对所有输出的统计，使得最终结果在1以内。$\lambda_k,\mu_l$为权重，是将来学习的参数。<br>这个式子可以用在这个例子中：在一个标注问题中，输入观测序列为$X=(X_1,X_2,X_3)$，输出序列为$Y=(Y_1,Y_2,Y_3)$，取值为{1,2}，现在给相应的特征函数$t_k$和$s_l$以及对应的权值$\lambda_k,\mu_l$，求对于给定的观测序列<em>x</em>,输出标记序列为y=(1,2,2)的概率。(具体问题请参考李航 统计学习方法)</p>
 <h4 id="3-条件随机场的学习算法"><a href="#3-条件随机场的学习算法" class="headerlink" title="3. 条件随机场的学习算法"></a>3. 条件随机场的学习算法</h4><h5 id="3-1-改进的迭代尺度算法-IIS"><a href="#3-1-改进的迭代尺度算法-IIS" class="headerlink" title="3.1 改进的迭代尺度算法(IIS)"></a>3.1 改进的迭代尺度算法(IIS)</h5><p>IIS的想法是：假设最大熵模型当前的参数向量是$w=(w_1,w_2,…,w_n)^T$，希望找到一个新的参数向量w+$\delta$使得模型的对数似然值增大，然后不断循环这个过程直到$\delta$小于某个阈值，可以认为现在w达到了最理想的值。</p>
-<h5 id="3-2-拟牛顿法"><a href="#3-2-拟牛顿法" class="headerlink" title="3.2 拟牛顿法"></a>3.2 拟牛顿法</h5><p><img src="https://github.com/SummerOf15/SummerOf15.github.io/blob/master/images/newton.gif" alt="Newton method"></p>
-<h5 id="4-条件随机场的预测算法"><a href="#4-条件随机场的预测算法" class="headerlink" title="4. 条件随机场的预测算法"></a>4. 条件随机场的预测算法</h5><p>条件随机场的预测问题是给定条件随机场P(Y|X)和输入序列x，求条件概率最大的输出序列y。<br>常用的算法为viterbi算法。(原理与dijestela最短路径算法相似)<br><img src="https://github.com/SummerOf15/SummerOf15.github.io/blob/master/images/viterbi_pic.png" alt="viterbi_pic"><br>预测算法的目标可以表达成y=argmax(P(y|x))等效于argmax(w*F(y,x))<br>算法步骤：</p>
+<h5 id="3-2-拟牛顿法"><a href="#3-2-拟牛顿法" class="headerlink" title="3.2 拟牛顿法"></a>3.2 拟牛顿法</h5><p><img src="images/newton.gif" alt="Newton method"></p>
+<h5 id="4-条件随机场的预测算法"><a href="#4-条件随机场的预测算法" class="headerlink" title="4. 条件随机场的预测算法"></a>4. 条件随机场的预测算法</h5><p>条件随机场的预测问题是给定条件随机场P(Y|X)和输入序列x，求条件概率最大的输出序列y。<br>常用的算法为viterbi算法。(原理与dijestela最短路径算法相似)<br><img src="images/viterbi_pic.png" alt="viterbi_pic"><br>预测算法的目标可以表达成y=argmax(P(y|x))等效于argmax(w*F(y,x))<br>算法步骤：</p>
 <ol>
-<li>初始化：从第一个预测序列$y_0$开始，求w*F(y,x)。<br><img src="https://github.com/SummerOf15/SummerOf15.github.io/blob/master/images/viterbi_1.png" alt="viterbi_1"></li>
-<li>递推，依次求出剩余的预测序列的最大概率以及最大概率所对应路径。<br><img src="https://github.com/SummerOf15/SummerOf15.github.io/blob/master/images/viterbi_2.png" alt="viterbi_2"></li>
-<li>递推直到结束，获取$y_n$对应的最大概率以及路径。<br><img src="https://github.com/SummerOf15/SummerOf15.github.io/blob/master/images/viterbi_3.png" alt="viterbi_3"></li>
-<li>从后往前一步一步返回最优路径<br><img src="https://github.com/SummerOf15/SummerOf15.github.io/blob/master/images/viterbi_4.png" alt="viterbi_4"><br>最终的最优路径是$y^<em>=(y_1^</em>,y_2^<em>,…,y_n^</em>)$<h4 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h4><a href="https://www.cnblogs.com/pinking/p/9194865.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinking/p/9194865.html</a><br><a href="https://blog.csdn.net/wkebj/article/details/77965714" target="_blank" rel="noopener">https://blog.csdn.net/wkebj/article/details/77965714</a><br>李航《统计学习方法》</li>
+<li>初始化：从第一个预测序列$y_0$开始，求w*F(y,x)。<br><img src="images/viterbi_1.png" alt="viterbi_1"></li>
+<li>递推，依次求出剩余的预测序列的最大概率以及最大概率所对应路径。<br><img src="images/viterbi_2.png" alt="viterbi_2"></li>
+<li>递推直到结束，获取$y_n$对应的最大概率以及路径。<br><img src="images/viterbi_3.png" alt="viterbi_3"></li>
+<li>从后往前一步一步返回最优路径<br><img src="images/viterbi_4.png" alt="viterbi_4"><br>最终的最优路径是$y^<em>=(y_1^</em>,y_2^<em>,…,y_n^</em>)$<h4 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h4><a href="https://www.cnblogs.com/pinking/p/9194865.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinking/p/9194865.html</a><br><a href="https://blog.csdn.net/wkebj/article/details/77965714" target="_blank" rel="noopener">https://blog.csdn.net/wkebj/article/details/77965714</a><br>李航《统计学习方法》</li>
 </ol>
 <p>$\delta$</p>
 
@@ -454,7 +454,7 @@
 <li>所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$</li>
 <li>所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$</li>
 <li>长度为T的状态序列$I$及对应的观测序列$O$: <script type="math/tex">I=\{i_1,i_2,...,i_T\}$$$$O=\{O_1,O_2,...,O_T\}</script></li>
-<li>状态转移概率矩阵 $A=[a_{ij}]_{N \times N}$ 其中，$a_{ij}=P(i_{t+1}=q_j \mid i_t=q_i)$表示在时刻$t$处于状态$q_i$的条件下在时刻$t+1$转移到$q_j$的概率。 </li>
+<li>状态转移概率矩阵 $A=[a_{ij}]_{N \times N}$ 其中$a_{ij}=P(i_{t+1}=q_j \mid i_t=q_i)$表示在时刻$t$处于状态$q_i$的条件下在时刻$t+1$转移到$q_j$的概率。 </li>
 <li>观测概率矩阵 $B=[b_j(k)]_{N\times M}$ 其中,$b_j(k)=P(o_t=v_k \mid i_t=q_j)$$ k=1,2,…,M;j=1,2,…,N$<br>表示在时刻$t$处于状态$q_j$的条件下生成观测$v_k$的概率。</li>
 <li>$\pi$是初始概率向量 $\pi = (\pi_i)$ 其中,$\pi_i=P(i_1=q_i)$是时刻$t=1$处于状态$q_i$的概率。</li>
 </ul>
@@ -476,15 +476,29 @@
 <li>观测序列$O=\{红，白，白\}$</li>
 <li>$T=3$</li>
 </ul>
-<p>假设从box1取完球，再到box2取球的概率为$a_{12}$，并以此类推，则状态转移概率矩阵$A$为$$<br> \left[<br> \begin{matrix}<br>   a_{11} &amp; a_{12} &amp; a_{13} \\<br>   a_{21} &amp; a_{22} &amp; a_{23} \\<br>   a_{31} &amp; a_{32} &amp; a_{33}<br>  \end{matrix}<br>  \right]</p>
+<p>假设从box1取完球，再到box2取球的概率为$a_{12}$，并以此类推，则状态转移概率矩阵$A$为</p>
 <script type="math/tex; mode=display">
-
-假设在box1中摸到白球的概率为$P_{1白}$，摸到红球的概率为$P_{1红}$,以此类推。则观测概率矩阵$B$为</script><p> \left[<br> \begin{matrix}<br>   P_{1白} &amp; P_{1红}\\<br>   P_{2白} &amp; P_{2红}\\<br>   P_{3白} &amp; P_{3红}<br>  \end{matrix}<br>  \right]</p>
+ \left[
+ \begin{matrix}
+   a_{11} & a_{12} & a_{13} \\
+   a_{21} & a_{22} & a_{23} \\
+   a_{31} & a_{32} & a_{33}
+  \end{matrix}
+  \right]</script><p>假设在box1中摸到白球的概率为$P_{1白}$，摸到红球的概率为$P_{1红}$,以此类推。则观测概率矩阵$B$为</p>
 <script type="math/tex; mode=display">
-
-假如第一次去box1取球的概率为$\pi_1$，第一次去box2取球的概率为$\pi_2$，第一次去box3取球的概率为$\pi_3$，那么初始概率向量$\pi$可以表示为：</script><p> \left[<br> \begin{matrix}<br>   \pi_1 &amp; \pi_2 &amp; \pi_3<br>  \end{matrix}<br>  \right]</p>
-<p>$$</p>
-
+ \left[
+ \begin{matrix}
+   P_{1白} & P_{1红}\\
+   P_{2白} & P_{2红}\\
+   P_{3白} & P_{3红}
+  \end{matrix}
+  \right]</script><p>假如第一次去box1取球的概率为$\pi_1$，第一次去box2取球的概率为$\pi_2$，第一次去box3取球的概率为$\pi_3$，那么初始概率向量$\pi$可以表示为：</p>
+<script type="math/tex; mode=display">
+ \left\{
+ \begin{matrix}
+   \pi_1 & \pi_2 & \pi_3
+  \end{matrix}
+  \right\}</script>
           
         
       
@@ -709,7 +723,7 @@
               
               <div class="site-state-item site-state-tags">
                 
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">tags</span>
                 
               </div>
@@ -999,7 +1013,7 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
