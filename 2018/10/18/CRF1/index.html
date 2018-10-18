@@ -79,18 +79,27 @@
 
 
 
-<meta name="description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)  所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$ 所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$ 长度为T的状态序列$I$及对应的观测序列$O$: I=\{i_1,i_2,...">
+<meta name="description" content="1. 基本概念条件随机场（crf）：是给定一组输入随机变量条件下，另一组输出随机变量的条件概率的分布模型.线性链条件随机场：定义在线性链上的特殊的条件随机场（输出变量$Y_i$只与$Y_{i-1},Y_{i+1}$有关）用数学式子表达就是P(Y|X)，在标注过程中，Y是输出变量，表示标记序列，X是输入变量，表示需要标记的观测序列。比如在自然语言处理中，X是句子（词向量），Y则是对应的词性标注（名词">
 <meta name="keywords" content="thesis notes">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hidden Markov Model(隐马尔可夫模型)(一)">
-<meta property="og:url" content="https://summerof15.github.io/2018/10/16/HMM1/index.html">
+<meta property="og:title" content="Conditional Random Field(条件随机场)">
+<meta property="og:url" content="https://summerof15.github.io/2018/10/18/CRF1/index.html">
 <meta property="og:site_name" content="code cooking">
-<meta property="og:description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)  所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$ 所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$ 长度为T的状态序列$I$及对应的观测序列$O$: I=\{i_1,i_2,...">
+<meta property="og:description" content="1. 基本概念条件随机场（crf）：是给定一组输入随机变量条件下，另一组输出随机变量的条件概率的分布模型.线性链条件随机场：定义在线性链上的特殊的条件随机场（输出变量$Y_i$只与$Y_{i-1},Y_{i+1}$有关）用数学式子表达就是P(Y|X)，在标注过程中，Y是输出变量，表示标记序列，X是输入变量，表示需要标记的观测序列。比如在自然语言处理中，X是句子（词向量），Y则是对应的词性标注（名词">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-17T03:09:22.781Z">
+<meta property="og:image" content="https://summerof15.github.io/image/linear_chain_crf.png">
+<meta property="og:image" content="https://summerof15.github.io/image/zx.png">
+<meta property="og:image" content="https://summerof15.github.io/image/newton.gif">
+<meta property="og:image" content="https://summerof15.github.io/image/viterbi_pic.png">
+<meta property="og:image" content="https://summerof15.github.io/image/viterbi_1.png">
+<meta property="og:image" content="https://summerof15.github.io/image/viterbi_2.png">
+<meta property="og:image" content="https://summerof15.github.io/image/viterbi_3.png">
+<meta property="og:image" content="https://summerof15.github.io/image/viterbi_4.png">
+<meta property="og:updated_time" content="2018-10-18T10:55:18.323Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hidden Markov Model(隐马尔可夫模型)(一)">
-<meta name="twitter:description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)  所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$ 所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$ 长度为T的状态序列$I$及对应的观测序列$O$: I=\{i_1,i_2,...">
+<meta name="twitter:title" content="Conditional Random Field(条件随机场)">
+<meta name="twitter:description" content="1. 基本概念条件随机场（crf）：是给定一组输入随机变量条件下，另一组输出随机变量的条件概率的分布模型.线性链条件随机场：定义在线性链上的特殊的条件随机场（输出变量$Y_i$只与$Y_{i-1},Y_{i+1}$有关）用数学式子表达就是P(Y|X)，在标注过程中，Y是输出变量，表示标记序列，X是输入变量，表示需要标记的观测序列。比如在自然语言处理中，X是句子（词向量），Y则是对应的词性标注（名词">
+<meta name="twitter:image" content="https://summerof15.github.io/image/linear_chain_crf.png">
 
 
 
@@ -120,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="https://summerof15.github.io/2018/10/16/HMM1/"/>
+  <link rel="canonical" href="https://summerof15.github.io/2018/10/18/CRF1/"/>
 
 
 
 
 
-  <title>Hidden Markov Model(隐马尔可夫模型)(一) | code cooking</title>
+  <title>Conditional Random Field(条件随机场) | code cooking</title>
   
 
 
@@ -243,7 +252,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2018/10/16/HMM1/">
+    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2018/10/18/CRF1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhang Kai">
@@ -260,7 +269,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hidden Markov Model(隐马尔可夫模型)(一)</h1>
+          <h1 class="post-title" itemprop="name headline">Conditional Random Field(条件随机场)</h1>
         
 
         <div class="post-meta">
@@ -272,8 +281,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-16T16:04:26+08:00">
-                2018-10-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-18T16:04:26+08:00">
+                2018-10-18
               </time>
             
 
@@ -315,41 +324,22 @@
       
 
       
-        <h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><p>隐藏的马尔可夫链根据时间的变化生成的状态的序列称为<code>状态序列</code>（state sequence),根据这些状态实际观察到的序列为<code>观测序列</code>(observation sequence)</p>
+        <h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><p><code>条件随机场（crf）</code>：是给定一组输入随机变量条件下，另一组输出随机变量的条件概率的分布模型.<br><code>线性链条件随机场</code>：定义在线性链上的特殊的条件随机场（输出变量$Y_i$只与$Y_{i-1},Y_{i+1}$有关）用数学式子表达就是P(Y|X)，在标注过程中，Y是输出变量，表示标记序列，X是输入变量，表示需要标记的观测序列。比如在自然语言处理中，X是句子（词向量），Y则是对应的词性标注（名词、动词、形容词）<br><code>条件随机场应用过程</code>：应用过程分为两个步骤。</p>
 <ul>
-<li>所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$</li>
-<li>所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$</li>
-<li>长度为T的状态序列$I$及对应的观测序列$O$: <script type="math/tex">I=\{i_1,i_2,...,i_T\}$$$$O=\{O_1,O_2,...,O_T\}</script></li>
-<li>状态转移概率矩阵 $A=[a_{ij}]_{N \times N}$ 其中，$a_{ij}=P(i_{t+1}=q_j \mid i_t=q_i)$表示在时刻$t$处于状态$q_i$的条件下在时刻$t+1$转移到$q_j$的概率。 </li>
-<li>观测概率矩阵 $B=[b_j(k)]_{N\times M}$ 其中,$b_j(k)=P(o_t=v_k \mid i_t=q_j)$$ k=1,2,…,M;j=1,2,…,N$<br>表示在时刻$t$处于状态$q_j$的条件下生成观测$v_k$的概率。</li>
-<li>$\pi$是初始概率向量 $\pi = (\pi_i)$ 其中,$\pi_i=P(i_1=q_i)$是时刻$t=1$处于状态$q_i$的概率。</li>
+<li>学习：在训练数据上通过极大似然估计得到一个最符合的条件概率模型$\hat{P}(Y|X)$</li>
+<li>预测：利用训练好的条件概率模型$\hat{P}(Y|X)$，输入序列X，获得概率最大的$\hat{y}$</li>
 </ul>
-<p>隐马尔可夫模型可以表示为：</p>
-<script type="math/tex; mode=display">\lambda=(A,B,\pi)</script><p>$\pi$和$A$决定状态序列,$B$决定观测序列</p>
-<p>隐马尔可夫模型基于两个假设：</p>
+<h4 id="2-CRF的表示"><a href="#2-CRF的表示" class="headerlink" title="2. CRF的表示"></a>2. CRF的表示</h4><p>线性链条件随机场的参数化形式为：<br><img src="/image/linear_chain_crf.png" alt="linear chain CRF"><br><img src="/image/zx.png" alt="Z(x)"><br>其中，$t_k$和$S_l$是特征函数，$t_k$表示转移特征(transition function)，$S_l$表示状态特征函数，通常两个函数取值为1或者0. Z(x)为规范化因子(normalization factor)，相当于对所有输出的统计，使得最终结果在1以内。$\lambda_k,\mu_l$为权重，是将来学习的参数。<br>这个式子可以用在这个例子中：在一个标注问题中，输入观测序列为$X=(X_1,X_2,X_3)$，输出序列为$Y=(Y_1,Y_2,Y_3)$，取值为{1,2}，现在给相应的特征函数$t_k$和$s_l$以及对应的权值$\lambda_k,\mu_l$，求对于给定的观测序列<em>x</em>,输出标记序列为y=(1,2,2)的概率。(具体问题请参考李航 统计学习方法)</p>
+<h4 id="3-条件随机场的学习算法"><a href="#3-条件随机场的学习算法" class="headerlink" title="3. 条件随机场的学习算法"></a>3. 条件随机场的学习算法</h4><h5 id="3-1-改进的迭代尺度算法-IIS"><a href="#3-1-改进的迭代尺度算法-IIS" class="headerlink" title="3.1 改进的迭代尺度算法(IIS)"></a>3.1 改进的迭代尺度算法(IIS)</h5><p>IIS的想法是：假设最大熵模型当前的参数向量是$w=(w_1,w_2,…,w_n)^T$，希望找到一个新的参数向量w+$\delta$使得模型的对数似然值增大，然后不断循环这个过程直到$\delta$小于某个阈值，可以认为现在w达到了最理想的值。</p>
+<h5 id="3-2-拟牛顿法"><a href="#3-2-拟牛顿法" class="headerlink" title="3.2 拟牛顿法"></a>3.2 拟牛顿法</h5><p><img src="/image/newton.gif" alt="Newton method"></p>
+<h5 id="4-条件随机场的预测算法"><a href="#4-条件随机场的预测算法" class="headerlink" title="4. 条件随机场的预测算法"></a>4. 条件随机场的预测算法</h5><p>条件随机场的预测问题是给定条件随机场P(Y|X)和输入序列x，求条件概率最大的输出序列y。<br>常用的算法为viterbi算法。(原理与dijestela最短路径算法相似)<br><img src="/image/viterbi_pic.png" alt="viterbi_pic"><br>预测算法的目标可以表达成y=argmax(P(y|x))等效于argmax(w*F(y,x))<br>算法步骤：</p>
 <ol>
-<li>隐藏的马尔可夫链在任意时刻t的状态只与前一时刻的状态有关,与其它时刻的状态和观测无关。</li>
-<li>任意时刻的观测只和当前时刻的状态有关,与其它时刻的状态及观测无关。</li>
+<li>初始化：从第一个预测序列$y_0$开始，求w*F(y,x)。<br><img src="/image/viterbi_1.png" alt="viterbi_1"></li>
+<li>递推，依次求出剩余的预测序列的最大概率以及最大概率所对应路径。<br><img src="/image/viterbi_2.png" alt="viterbi_2"></li>
+<li>递推直到结束，获取$y_n$对应的最大概率以及路径。<br><img src="/image/viterbi_3.png" alt="viterbi_3"></li>
+<li>从后往前一步一步返回最优路径<br><img src="/image/viterbi_4.png" alt="viterbi_4"><br>最终的最优路径是$y^<em>=(y_1^</em>,y_2^<em>,…,y_n^</em>)$<h4 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h4><a href="https://www.cnblogs.com/pinking/p/9194865.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinking/p/9194865.html</a><br><a href="https://blog.csdn.net/wkebj/article/details/77965714" target="_blank" rel="noopener">https://blog.csdn.net/wkebj/article/details/77965714</a><br>李航《统计学习方法》</li>
 </ol>
-<h3 id="2-例子"><a href="#2-例子" class="headerlink" title="2. 例子"></a>2. 例子</h3><p>下面通过一个例子来介绍一下隐马尔可夫模型的参数。<br>假设有三个盒子，分别编号box1,box2,box3，盒子里面分别有白球和红球。</p>
-<ul>
-<li>则所有的状态集合$Q=\{box1,box2,box3\}$</li>
-<li>所有的观测集合为$V=\{白球,红球\}$</li>
-</ul>
-<p>现在从三个盒子中按照box1,box3,box2的次序依次拿一个球，拿出来的结果为：红，白，白。此时，</p>
-<ul>
-<li>状态序列$I=\{box1,box3,box2\}$</li>
-<li>观测序列$O=\{红，白，白\}$</li>
-<li>$T=3$</li>
-</ul>
-<p>假设从box1取完球，再到box2取球的概率为$a_{12}$，并以此类推，则状态转移概率矩阵$A$为$$<br> \left[<br> \begin{matrix}<br>   a_{11} &amp; a_{12} &amp; a_{13} \\<br>   a_{21} &amp; a_{22} &amp; a_{23} \\<br>   a_{31} &amp; a_{32} &amp; a_{33}<br>  \end{matrix}<br>  \right]</p>
-<script type="math/tex; mode=display">
-
-假设在box1中摸到白球的概率为$P_{1白}$，摸到红球的概率为$P_{1红}$,以此类推。则观测概率矩阵$B$为</script><p> \left[<br> \begin{matrix}<br>   P_{1白} &amp; P_{1红}\\<br>   P_{2白} &amp; P_{2红}\\<br>   P_{3白} &amp; P_{3红}<br>  \end{matrix}<br>  \right]</p>
-<script type="math/tex; mode=display">
-
-假如第一次去box1取球的概率为$\pi_1$，第一次去box2取球的概率为$\pi_2$，第一次去box3取球的概率为$\pi_3$，那么初始概率向量$\pi$可以表示为：</script><p> \left[<br> \begin{matrix}<br>   \pi_1 &amp; \pi_2 &amp; \pi_3<br>  \end{matrix}<br>  \right]</p>
-<p>$$</p>
+<p>$\delta$</p>
 
       
     </div>
@@ -380,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/18/optical flow/" rel="next" title="Hight Accuracy Optical Flow Estimation Based on a Theory for Warping_ reading notes">
-                <i class="fa fa-chevron-left"></i> Hight Accuracy Optical Flow Estimation Based on a Theory for Warping_ reading notes
+              <a href="/2018/10/16/HMM1/" rel="next" title="Hidden Markov Model(隐马尔可夫模型)(一)">
+                <i class="fa fa-chevron-left"></i> Hidden Markov Model(隐马尔可夫模型)(一)
               </a>
             
           </div>
@@ -389,10 +379,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/18/CRF1/" rel="prev" title="Conditional Random Field(条件随机场)">
-                Conditional Random Field(条件随机场) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -531,7 +517,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基本概念"><span class="nav-number">1.</span> <span class="nav-text">1. 基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-例子"><span class="nav-number">2.</span> <span class="nav-text">2. 例子</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-基本概念"><span class="nav-number">1.</span> <span class="nav-text">1. 基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-CRF的表示"><span class="nav-number">2.</span> <span class="nav-text">2. CRF的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-条件随机场的学习算法"><span class="nav-number">3.</span> <span class="nav-text">3. 条件随机场的学习算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-改进的迭代尺度算法-IIS"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 改进的迭代尺度算法(IIS)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-拟牛顿法"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 拟牛顿法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-条件随机场的预测算法"><span class="nav-number">3.3.</span> <span class="nav-text">4. 条件随机场的预测算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference："><span class="nav-number">4.</span> <span class="nav-text">Reference：</span></a></li></ol></div>
             
 
           </div>
