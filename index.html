@@ -561,8 +561,7 @@
 
       
         
-          <p>作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint). </p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>光流法是估计两张图片像素之间的位移范围，可以应用在获取像素之间的对应关系的情景。在过去的研究中，很多新的方法被提出，解决了之前的模型的一些缺点。比如，为了解决光流场中的不连续性，平滑约束替代了二次正则化。由粗到精(coarse to fine)的策略和非线性模型的方法可以用来解决大的位移。时空结合的方法用一个额外维度的信息改善了最终的结果。<br>在本文中，作者整合了之前的一些概念，并且提出一个能用数学方法最小化的能量方程。它使用了非线性的光流约束条件，并且提出了一个多分辨率的方法解决像素对应问题。另外，还使用了梯度恒定约束扩展灰度恒定约束，提升了对灰度变化的鲁棒性。<br>
+          <p>作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint).<br>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/07/18/optical flow/#more" rel="contents">

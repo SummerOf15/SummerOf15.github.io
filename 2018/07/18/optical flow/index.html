@@ -79,13 +79,13 @@
 
 
 
-<meta name="description" content="作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint).  Introduction光流法是估计两张图片像素之间的位移范围，可以应用在获取像素之间的对应关系的情景。在过去的研究中，很多新的方法被提出，解决了之前的模型的一些缺点。比如，">
+<meta name="description" content="作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint).">
 <meta name="keywords" content="thesis notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hight Accuracy Optical Flow Estimation Based on a Theory for Warping_ reading notes">
 <meta property="og:url" content="https://summerof15.github.io/2018/07/18/optical flow/index.html">
 <meta property="og:site_name" content="code cooking">
-<meta property="og:description" content="作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint).  Introduction光流法是估计两张图片像素之间的位移范围，可以应用在获取像素之间的对应关系的情景。在过去的研究中，很多新的方法被提出，解决了之前的模型的一些缺点。比如，">
+<meta property="og:description" content="作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint).">
 <meta property="og:locale" content="en">
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?$$I(x,y,t)=I(x+u,y+v,t+1)\tag{1}$$">
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?$$I_xu+I_yv+I_t=0\tag{2}$$">
@@ -95,10 +95,10 @@
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?$$&space;E_{Smooth}(u,v)=\int_{\Omega}(\Psi({|\nabla_{3}u|}^2+{|\nabla_{3}v|}^2)dx&space;$$">
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?$$&space;\Psi^{'}({I_z}^2+\gamma(I_{xa}^2+I_{yz}^2))\cdot&space;(I_{x}I_z+\gamma(I_{xx}I_{xz}+I_{xy}I_{yz}))-\alpha&space;div({\Psi}^{'}({|\nabla_3&space;u|}^2+{|\nabla_3&space;v|}^2)\nabla_3&space;u)=0&space;$$">
 <meta property="og:image" content="https://latex.codecogs.com/gif.latex?$$&space;\Psi^{'}({I_z}^2+\gamma(I_{xa}^2+I_{yz}^2))\cdot&space;(I_{y}I_z+\gamma(I_{yy}I_{yz}+I_{xy}I_{xz}))-\alpha&space;div({\Psi}^{'}({|\nabla_3&space;u|}^2+{|\nabla_3&space;v|}^2)\nabla_3&space;u)=0&space;$$">
-<meta property="og:updated_time" content="2018-10-22T12:58:03.522Z">
+<meta property="og:updated_time" content="2018-10-22T12:58:54.351Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hight Accuracy Optical Flow Estimation Based on a Theory for Warping_ reading notes">
-<meta name="twitter:description" content="作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint).  Introduction光流法是估计两张图片像素之间的位移范围，可以应用在获取像素之间的对应关系的情景。在过去的研究中，很多新的方法被提出，解决了之前的模型的一些缺点。比如，">
+<meta name="twitter:description" content="作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint).">
 <meta name="twitter:image" content="https://latex.codecogs.com/gif.latex?$$I(x,y,t)=I(x+u,y+v,t+1)\tag{1}$$">
 
 
@@ -324,8 +324,8 @@
       
 
       
-        <p>作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint). </p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>光流法是估计两张图片像素之间的位移范围，可以应用在获取像素之间的对应关系的情景。在过去的研究中，很多新的方法被提出，解决了之前的模型的一些缺点。比如，为了解决光流场中的不连续性，平滑约束替代了二次正则化。由粗到精(coarse to fine)的策略和非线性模型的方法可以用来解决大的位移。时空结合的方法用一个额外维度的信息改善了最终的结果。<br>在本文中，作者整合了之前的一些概念，并且提出一个能用数学方法最小化的能量方程。它使用了非线性的光流约束条件，并且提出了一个多分辨率的方法解决像素对应问题。另外，还使用了梯度恒定约束扩展灰度恒定约束，提升了对灰度变化的鲁棒性。<br><a id="more"></a></p>
+        <p>作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint).<br><a id="more"></a></p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>光流法是估计两张图片像素之间的位移范围，可以应用在获取像素之间的对应关系的情景。在过去的研究中，很多新的方法被提出，解决了之前的模型的一些缺点。比如，为了解决光流场中的不连续性，平滑约束替代了二次正则化。由粗到精(coarse to fine)的策略和非线性模型的方法可以用来解决大的位移。时空结合的方法用一个额外维度的信息改善了最终的结果。<br>在本文中，作者整合了之前的一些概念，并且提出一个能用数学方法最小化的能量方程。它使用了非线性的光流约束条件，并且提出了一个多分辨率的方法解决像素对应问题。另外，还使用了梯度恒定约束扩展灰度恒定约束，提升了对灰度变化的鲁棒性。  </p>
 <h2 id="The-Variational-Model"><a href="#The-Variational-Model" class="headerlink" title="The Variational Model"></a>The Variational Model</h2><p>作者对能量方程中基于的假设进行了介绍。</p>
 <h3 id="灰度恒定假设-grey-value-constancy-assumption"><a href="#灰度恒定假设-grey-value-constancy-assumption" class="headerlink" title="灰度恒定假设(grey value constancy assumption)"></a>灰度恒定假设(grey value constancy assumption)</h3><p>从光流估计开始，像素的灰度值不会随着位移的变化而变化<br><img src="https://latex.codecogs.com/gif.latex?$$I(x,y,t)=I(x&plus;u,y&plus;v,t&plus;1)\tag{1}$$"><br>线性化后的灰度恒定约束是(推导参考<a href="https://en.wikipedia.org/wiki/Optical_flow" target="_blank" rel="noopener">wiki</a>)<br><img src="https://latex.codecogs.com/gif.latex?$$I_xu&plus;I_yv&plus;I_t=0\tag{2}$$"></p>
 <p>由于线性化的约束只存在与图像沿着位移方向线性变化，并不符合事实，所以作者采用最原始的，即公式(1)，非线性的灰度恒定约束。  </p>
