@@ -313,25 +313,14 @@
 
       
         
-          
-            <h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><p><code>条件随机场（crf）</code>：是给定一组输入随机变量条件下，另一组输出随机变量的条件概率的分布模型.<br><code>线性链条件随机场</code>：定义在线性链上的特殊的条件随机场（输出变量$Y_i$只与$Y_{i-1},Y_{i+1}$有关）用数学式子表达就是P(Y|X)，在标注过程中，Y是输出变量，表示标记序列，X是输入变量，表示需要标记的观测序列。比如在自然语言处理中，X是句子（词向量），Y则是对应的词性标注（名词、动词、形容词）<br><code>条件随机场应用过程</code>：应用过程分为两个步骤。</p>
-<ul>
-<li>学习：在训练数据上通过极大似然估计得到一个最符合的条件概率模型$\hat{P}(Y|X)$</li>
-<li>预测：利用训练好的条件概率模型$\hat{P}(Y|X)$，输入序列X，获得概率最大的$\hat{y}$</li>
-</ul>
-<h4 id="2-CRF的表示"><a href="#2-CRF的表示" class="headerlink" title="2. CRF的表示"></a>2. CRF的表示</h4><p>线性链条件随机场的参数化形式为：<br><img src="images/linear_chain_crf.png" alt="linear chain CRF"><br><img src="images/zx.png" alt="Z(x)"><br>其中，$t_k$和$S_l$是特征函数，$t_k$表示转移特征(transition function)，$S_l$表示状态特征函数，通常两个函数取值为1或者0. Z(x)为规范化因子(normalization factor)，相当于对所有输出的统计，使得最终结果在1以内。$\lambda_k,\mu_l$为权重，是将来学习的参数。<br>这个式子可以用在这个例子中：在一个标注问题中，输入观测序列为$X=(X_1,X_2,X_3)$，输出序列为$Y=(Y_1,Y_2,Y_3)$，取值为{1,2}，现在给相应的特征函数$t_k$和$s_l$以及对应的权值$\lambda_k,\mu_l$，求对于给定的观测序列<em>x</em>,输出标记序列为y=(1,2,2)的概率。(具体问题请参考李航 统计学习方法)</p>
-<h4 id="3-条件随机场的学习算法"><a href="#3-条件随机场的学习算法" class="headerlink" title="3. 条件随机场的学习算法"></a>3. 条件随机场的学习算法</h4><h5 id="3-1-改进的迭代尺度算法-IIS"><a href="#3-1-改进的迭代尺度算法-IIS" class="headerlink" title="3.1 改进的迭代尺度算法(IIS)"></a>3.1 改进的迭代尺度算法(IIS)</h5><p>IIS的想法是：假设最大熵模型当前的参数向量是$w=(w_1,w_2,…,w_n)^T$，希望找到一个新的参数向量w+$\delta$使得模型的对数似然值增大，然后不断循环这个过程直到$\delta$小于某个阈值，可以认为现在w达到了最理想的值。</p>
-<h5 id="3-2-拟牛顿法"><a href="#3-2-拟牛顿法" class="headerlink" title="3.2 拟牛顿法"></a>3.2 拟牛顿法</h5><p><img src="images/newton.gif" alt="Newton method"></p>
-<h5 id="4-条件随机场的预测算法"><a href="#4-条件随机场的预测算法" class="headerlink" title="4. 条件随机场的预测算法"></a>4. 条件随机场的预测算法</h5><p>条件随机场的预测问题是给定条件随机场P(Y|X)和输入序列x，求条件概率最大的输出序列y。<br>常用的算法为viterbi算法。(原理与dijestela最短路径算法相似)<br><img src="images/viterbi_pic.png" alt="viterbi_pic"><br>预测算法的目标可以表达成y=argmax(P(y|x))等效于argmax(w*F(y,x))<br>算法步骤：</p>
-<ol>
-<li>初始化：从第一个预测序列$y_0$开始，求w*F(y,x)。<br><img src="images/viterbi_1.png" alt="viterbi_1"></li>
-<li>递推，依次求出剩余的预测序列的最大概率以及最大概率所对应路径。<br><img src="images/viterbi_2.png" alt="viterbi_2"></li>
-<li>递推直到结束，获取$y_n$对应的最大概率以及路径。<br><img src="images/viterbi_3.png" alt="viterbi_3"></li>
-<li>从后往前一步一步返回最优路径<br><img src="images/viterbi_4.png" alt="viterbi_4"><br>最终的最优路径是$y^<em>=(y_1^</em>,y_2^<em>,…,y_n^</em>)$<h4 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h4><a href="https://www.cnblogs.com/pinking/p/9194865.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinking/p/9194865.html</a><br><a href="https://blog.csdn.net/wkebj/article/details/77965714" target="_blank" rel="noopener">https://blog.csdn.net/wkebj/article/details/77965714</a><br>李航《统计学习方法》</li>
-</ol>
-<p>$\delta$</p>
-
-          
+          <h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><p><code>条件随机场（crf）</code>：是给定一组输入随机变量条件下，另一组输出随机变量的条件概率的分布模型.<br><code>线性链条件随机场</code>：定义在线性链上的特殊的条件随机场（输出变量$Y_i$只与$Y_{i-1},Y_{i+1}$有关）用数学式子表达就是P(Y|X)，在标注过程中，Y是输出变量，表示标记序列，X是输入变量，表示需要标记的观测序列。比如在自然语言处理中，X是句子（词向量），Y则是对应的词性标注（名词、动词、形容词）<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/18/CRF1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -448,58 +437,14 @@
 
       
         
-          
-            <h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><p>隐藏的马尔可夫链根据时间的变化生成的状态的序列称为<code>状态序列</code>（state sequence),根据这些状态实际观察到的序列为<code>观测序列</code>(observation sequence)</p>
-<ul>
-<li>所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$</li>
-<li>所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$</li>
-<li>长度为T的状态序列$I$及对应的观测序列$O$: <script type="math/tex">I=\{i_1,i_2,...,i_T\}$$$$O=\{O_1,O_2,...,O_T\}</script></li>
-<li>状态转移概率矩阵 $A=[a_{ij}]_{N \times N}$ 其中$a_{ij}=P(i_{t+1}=q_j \mid i_t=q_i)$表示在时刻$t$处于状态$q_i$的条件下在时刻$t+1$转移到$q_j$的概率。 </li>
-<li>观测概率矩阵 $B=[b_j(k)]_{N\times M}$ 其中,$b_j(k)=P(o_t=v_k \mid i_t=q_j)$$ k=1,2,…,M;j=1,2,…,N$<br>表示在时刻$t$处于状态$q_j$的条件下生成观测$v_k$的概率。</li>
-<li>$\pi$是初始概率向量 $\pi = (\pi_i)$ 其中,$\pi_i=P(i_1=q_i)$是时刻$t=1$处于状态$q_i$的概率。</li>
-</ul>
-<p>隐马尔可夫模型可以表示为：</p>
-<script type="math/tex; mode=display">\lambda=(A,B,\pi)</script><p>$\pi$和$A$决定状态序列,$B$决定观测序列</p>
-<p>隐马尔可夫模型基于两个假设：</p>
-<ol>
-<li>隐藏的马尔可夫链在任意时刻t的状态只与前一时刻的状态有关,与其它时刻的状态和观测无关。</li>
-<li>任意时刻的观测只和当前时刻的状态有关,与其它时刻的状态及观测无关。</li>
-</ol>
-<h3 id="2-例子"><a href="#2-例子" class="headerlink" title="2. 例子"></a>2. 例子</h3><p>下面通过一个例子来介绍一下隐马尔可夫模型的参数。<br>假设有三个盒子，分别编号box1,box2,box3，盒子里面分别有白球和红球。</p>
-<ul>
-<li>则所有的状态集合$Q=\{box1,box2,box3\}$</li>
-<li>所有的观测集合为$V=\{白球,红球\}$</li>
-</ul>
-<p>现在从三个盒子中按照box1,box3,box2的次序依次拿一个球，拿出来的结果为：红，白，白。此时，</p>
-<ul>
-<li>状态序列$I=\{box1,box3,box2\}$</li>
-<li>观测序列$O=\{红，白，白\}$</li>
-<li>$T=3$</li>
-</ul>
-<p>假设从box1取完球，再到box2取球的概率为$a_{12}$，并以此类推，则状态转移概率矩阵$A$为</p>
-<script type="math/tex; mode=display">
- \left[
- \begin{matrix}
-   a_{11} & a_{12} & a_{13} \\
-   a_{21} & a_{22} & a_{23} \\
-   a_{31} & a_{32} & a_{33}
-  \end{matrix}
-  \right]</script><p>假设在box1中摸到白球的概率为$P_{1白}$，摸到红球的概率为$P_{1红}$,以此类推。则观测概率矩阵$B$为</p>
-<script type="math/tex; mode=display">
- \left[
- \begin{matrix}
-   P_{1白} & P_{1红}\\
-   P_{2白} & P_{2红}\\
-   P_{3白} & P_{3红}
-  \end{matrix}
-  \right]</script><p>假如第一次去box1取球的概率为$\pi_1$，第一次去box2取球的概率为$\pi_2$，第一次去box3取球的概率为$\pi_3$，那么初始概率向量$\pi$可以表示为：</p>
-<script type="math/tex; mode=display">
- \left\{
- \begin{matrix}
-   \pi_1 & \pi_2 & \pi_3
-  \end{matrix}
-  \right\}</script>
-          
+          <h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><p>隐藏的马尔可夫链根据时间的变化生成的状态的序列称为<code>状态序列</code>（state sequence),根据这些状态实际观察到的序列为<code>观测序列</code>(observation sequence)<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/10/16/HMM1/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -616,21 +561,15 @@
 
       
         
-          
-            <p>作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint). </p>
-<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>光流法是估计两张图片像素之间的位移范围，可以应用在获取像素之间的对应关系的情景。在过去的研究中，很多新的方法被提出，解决了之前的模型的一些缺点。比如，为了解决光流场中的不连续性，平滑约束替代了二次正则化。由粗到精(coarse to fine)的策略和非线性模型的方法可以用来解决大的位移。时空结合的方法用一个额外维度的信息改善了最终的结果。<br>在本文中，作者整合了之前的一些概念，并且提出一个能用数学方法最小化的能量方程。它使用了非线性的光流约束条件，并且提出了一个多分辨率的方法解决像素对应问题。另外，还使用了梯度恒定约束扩展灰度恒定约束，提升了对灰度变化的鲁棒性。  </p>
-<h2 id="The-Variational-Model"><a href="#The-Variational-Model" class="headerlink" title="The Variational Model"></a>The Variational Model</h2><p>作者对能量方程中基于的假设进行了介绍。</p>
-<h3 id="灰度恒定假设-grey-value-constancy-assumption"><a href="#灰度恒定假设-grey-value-constancy-assumption" class="headerlink" title="灰度恒定假设(grey value constancy assumption)"></a>灰度恒定假设(grey value constancy assumption)</h3><p>从光流估计开始，像素的灰度值不会随着位移的变化而变化<br><img src="https://latex.codecogs.com/gif.latex?$$I(x,y,t)=I(x&plus;u,y&plus;v,t&plus;1)\tag{1}$$"><br>线性化后的灰度恒定约束是(推导参考<a href="https://en.wikipedia.org/wiki/Optical_flow" target="_blank" rel="noopener">wiki</a>)<br><img src="https://latex.codecogs.com/gif.latex?$$I_xu&plus;I_yv&plus;I_t=0\tag{2}$$"></p>
-<p>由于线性化的约束只存在与图像沿着位移方向线性变化，并不符合事实，所以作者采用最原始的，即公式(1)，非线性的灰度恒定约束。  </p>
-<h3 id="梯度恒定假设-Gradient-constancy-assumption"><a href="#梯度恒定假设-Gradient-constancy-assumption" class="headerlink" title="梯度恒定假设(Gradient constancy assumption)"></a>梯度恒定假设(Gradient constancy assumption)</h3><p>灰度恒定假设不能适应亮度有轻微变化的场景，但是这种情况在自然界是非常常见的。因此，梯度作为一种不随着位移和线性光照的变化的量可以对这种场景有着较好的适应性。<br><img src="https://latex.codecogs.com/gif.latex?$$&space;\nabla&space;I(x,y,t)=\nabla&space;I(x&plus;u,y&plus;v,t&plus;1)&space;$$"><br><img src="https://latex.codecogs.com/gif.latex?$\nabla=(\partial&space;x,\partial&space;y)$">表示空间上的梯度。  </p>
-<h3 id="平滑假设-smoothness-assumption"><a href="#平滑假设-smoothness-assumption" class="headerlink" title="平滑假设(smoothness assumption)"></a>平滑假设(smoothness assumption)</h3><p>到目前为止，用来估计像素位移的模型只考虑了单个像素，并没有考虑像素的邻域。因此在一些梯度消失的场景（比如朝向镜头移动的物体的边界处的外部，由于受到遮挡会消失掉，或者因为单个物体平移而覆盖了场景中一些其它的物体）和沿着光轴方向移动的物体的位移(<a href="http://fourier.eng.hmc.edu/e180/lectures/motion/node11.html" target="_blank" rel="noopener">aperture problem</a>)。因此，通过对光流场像素平滑（pixelwise smooth）来满足平滑假设。  </p>
-<h3 id="多尺度方法（Multiscale-approach）"><a href="#多尺度方法（Multiscale-approach）" class="headerlink" title="多尺度方法（Multiscale approach）"></a>多尺度方法（Multiscale approach）</h3><p>当位移大于一个像素的时候，能量函数最小化很容易陷入一个局部最优解。为了达到一个全局最优，多尺度的方法比较有效。通过对原始图像进行降采样，然后在采样后的图像上寻找最优，此时得到一个比较粗略的解，然后把它作为初值，代入到优化的步骤中，得到精化后的最优解。  </p>
-<p>假设$ x:=(x,y,t)^T $和$ w:=(u,v,1)^T $。<br>考虑灰度恒定约束和梯度恒定约束的能量方程为：<br><img src="https://latex.codecogs.com/gif.latex?$$&space;E_{Data}(u,v)=\int_{\Omega}({|I(x&plus;w)-I(x)|}^2&plus;\gamma{|\nabla&space;I(x&plus;w)-\nabla&space;I(x)|}^2)dx&space;$$"><br>因为使用二次方对粗差太敏感，所以使用了凹函数$\Psi(s^2)=\sqrt{s^2+\epsilon^2}$来减少影响，其中$\epsilon$是一个很小的正数，为了在后续最小化过程中更容易而引入，在原文中，作者令$ \epsilon = 0.001 $.<br>平滑约束是通过惩罚光流场的变化（variation）来进行约束的。可以表示为:<br><img src="https://latex.codecogs.com/gif.latex?$$&space;E_{Smooth}(u,v)=\int_{\Omega}(\Psi({|\nabla_{3}u|}^2&plus;{|\nabla_{3}v|}^2)dx&space;$$"><br>其中$ \nabla_3:={(\partial_x,\partial_y,\partial_t)}^T $表示在时空方向上的变化。<br>最终的能量函数为：</p>
-<script type="math/tex; mode=display">E(u,v)=E_{Data}+\alpha E_{Smooth}</script><p>$\alpha $是权重系数，最终通过最小化能量函数得到相应的$u$和$v$。</p>
-<h2 id="Minimisation"><a href="#Minimisation" class="headerlink" title="Minimisation"></a>Minimisation</h2><p>利用拉格朗日等式，对能量函数在空间域上求偏导，得到：<br><img src="https://latex.codecogs.com/gif.latex?$$&space;\Psi^{'}({I_z}^2&plus;\gamma(I_{xa}^2&plus;I_{yz}^2))\cdot&space;(I_{x}I_z&plus;\gamma(I_{xx}I_{xz}&plus;I_{xy}I_{yz}))-\alpha&space;div({\Psi}^{'}({|\nabla_3&space;u|}^2&plus;{|\nabla_3&space;v|}^2)\nabla_3&space;u)=0&space;$$"><br><img src="https://latex.codecogs.com/gif.latex?$$&space;\Psi^{'}({I_z}^2&plus;\gamma(I_{xa}^2&plus;I_{yz}^2))\cdot&space;(I_{y}I_z&plus;\gamma(I_{yy}I_{yz}&plus;I_{xy}I_{xz}))-\alpha&space;div({\Psi}^{'}({|\nabla_3&space;u|}^2&plus;{|\nabla_3&space;v|}^2)\nabla_3&space;u)=0&space;$$"><br>一个极小值点一定满足这个拉格朗日等式。<br>因为该式子中对于参数$ w={(u,v,1)}^T $ 依旧是非线性的。通常解决这种问题的方法是在固定点处迭代，即确定一个初始值的情况下迭代。在本文中，通过一个coarse-to-fine的多尺度方式首先在coarse层确定一个初始值，然后再作为初值放到finer层中迭代精化，直至得到最终结果。</p>
-<h2 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h2><p>代码参考 <a href="http://people.csail.mit.edu/celiu/OpticalFlow/" target="_blank" rel="noopener">matlab</a></p>
-
-          
+          <p>作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint). </p>
+<h2 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h2><p>光流法是估计两张图片像素之间的位移范围，可以应用在获取像素之间的对应关系的情景。在过去的研究中，很多新的方法被提出，解决了之前的模型的一些缺点。比如，为了解决光流场中的不连续性，平滑约束替代了二次正则化。由粗到精(coarse to fine)的策略和非线性模型的方法可以用来解决大的位移。时空结合的方法用一个额外维度的信息改善了最终的结果。<br>在本文中，作者整合了之前的一些概念，并且提出一个能用数学方法最小化的能量方程。它使用了非线性的光流约束条件，并且提出了一个多分辨率的方法解决像素对应问题。另外，还使用了梯度恒定约束扩展灰度恒定约束，提升了对灰度变化的鲁棒性。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/07/18/optical flow/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)  所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$ 所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$ 长度为T的状态序列$I$及对应的观测序列$O$: I=\{i_1,i_2,...">
+<meta name="description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)">
 <meta name="keywords" content="thesis_notes">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hidden Markov Model(隐马尔可夫模型)(一)">
 <meta property="og:url" content="https://summerof15.github.io/2018/10/16/HMM1/index.html">
 <meta property="og:site_name" content="code cooking">
-<meta property="og:description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)  所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$ 所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$ 长度为T的状态序列$I$及对应的观测序列$O$: I=\{i_1,i_2,...">
+<meta property="og:description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-18T11:23:24.338Z">
+<meta property="og:updated_time" content="2018-10-22T12:57:41.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hidden Markov Model(隐马尔可夫模型)(一)">
-<meta name="twitter:description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)  所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$ 所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$ 长度为T的状态序列$I$及对应的观测序列$O$: I=\{i_1,i_2,...">
+<meta name="twitter:description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)">
 
 
 
@@ -315,7 +315,7 @@
       
 
       
-        <h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><p>隐藏的马尔可夫链根据时间的变化生成的状态的序列称为<code>状态序列</code>（state sequence),根据这些状态实际观察到的序列为<code>观测序列</code>(observation sequence)</p>
+        <h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><p>隐藏的马尔可夫链根据时间的变化生成的状态的序列称为<code>状态序列</code>（state sequence),根据这些状态实际观察到的序列为<code>观测序列</code>(observation sequence)<br><a id="more"></a></p>
 <ul>
 <li>所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$</li>
 <li>所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$</li>
@@ -789,6 +789,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
