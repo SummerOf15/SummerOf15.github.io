@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="denseCRF," />
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="A blog for sharing technology and ideas">
-<meta name="keywords" content="Computer Vision">
-<meta property="og:type" content="website">
-<meta property="og:title" content="about">
-<meta property="og:url" content="https://summerof15.github.io/about/index.html">
+<meta name="description" content="1. Definition局部均值(local means):就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：">
+<meta name="keywords" content="denseCRF">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Non-Local Means">
+<meta property="og:url" content="https://summerof15.github.io/2018/10/23/Nonlocal_Means/index.html">
 <meta property="og:site_name" content="code cooking">
-<meta property="og:description" content="A blog for sharing technology and ideas">
+<meta property="og:description" content="1. Definition局部均值(local means):就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-07-18T08:59:47.119Z">
+<meta property="og:image" content="https://summerof15.github.io/2018/10/23/Nonlocal_Means/image/nlm.jpg">
+<meta property="og:updated_time" content="2018-10-23T11:03:16.276Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="about">
-<meta name="twitter:description" content="A blog for sharing technology and ideas">
+<meta name="twitter:title" content="Non-Local Means">
+<meta name="twitter:description" content="1. Definition局部均值(local means):就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：">
+<meta name="twitter:image" content="https://summerof15.github.io/2018/10/23/Nonlocal_Means/image/nlm.jpg">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="https://summerof15.github.io/about/"/>
+  <link rel="canonical" href="https://summerof15.github.io/2018/10/23/Nonlocal_Means/"/>
 
 
 
 
 
-  <title>about | code cooking</title>
+  <title>Non-Local Means | code cooking</title>
   
 
 
@@ -231,33 +233,161 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2018/10/23/Nonlocal_Means/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhang Kai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="code cooking">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">about</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
+          <h1 class="post-title" itemprop="name headline">Non-Local Means</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-23T16:04:26+08:00">
+                2018-10-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-      </div>
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><p><code>局部均值(local means):</code>就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：<br><a id="more"></a></p>
+<script type="math/tex; mode=display">\frac{1}{9}
+ \left[
+ \begin{matrix}
+   1 & 1 & 1 \\
+   1 & 1 & 1 \\
+   1 & 1 & 1
+  \end{matrix}
+  \right]</script><p><code>非局部均值(Non-local Means):</code>非局部代表使用全局的图片，按照某种相似度的方式进行加权取平均。滤波后图像清晰度高，而且不丢失细节。</p>
+<h4 id="2-Method-description"><a href="#2-Method-description" class="headerlink" title="2. Method description"></a>2. Method description</h4><p>(1)以像点A(x,y)为中心，取[x-d:x+d,y-d:y+d]大小的窗口为搜索区域。另外，以A为中心，取半径为r的[x-r:x+r,y-r:y+r]窗口为邻域窗口，命名为窗口X，其中r&lt; d。<br><img src="image/nlm.jpg" alt="NLM"><br>(2)从搜索窗口的左上角开始构建一个同样以r为半径的邻域窗口，假设为窗口Y，对窗口Y与窗口X的相应位置求差的平方和，作为相似度。</p>
+<script type="math/tex; mode=display">||V(x)-V(y)||^2=\frac{1}{d^2}\sum_{z=-d}^{d}||v(x+z)-v(y+z)||^2</script><script type="math/tex; mode=display">w(x,y)=\frac{1}{Z(x)}exp(-\frac{||V(x)-V(y)||^2}{h^2})</script><p>Z(x)为规范化因子</p>
+<script type="math/tex; mode=display">Z(x)=\sum_y exp(-\frac{||V(x)-V(y)||^2}{h^2})</script><p>(3)以相似度为权，乘以邻域窗口Y，然后移动窗口Y重复步骤(2)，以一种类似加权求平均的方式求得最终的区域X中心的像素灰度值。</p>
+<script type="math/tex; mode=display">X(x)=\sum w(x,y)*V(y)</script><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://blog.csdn.net/u010839382/article/details/48229579" target="_blank" rel="noopener">https://blog.csdn.net/u010839382/article/details/48229579</a></p>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/denseCRF/" rel="tag"># denseCRF</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/10/18/CRF1/" rel="next" title="Conditional Random Field(条件随机场)">
+                <i class="fa fa-chevron-left"></i> Conditional Random Field(条件随机场)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -295,8 +425,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -363,6 +502,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Definition"><span class="nav-number">1.</span> <span class="nav-text">1. Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Method-description"><span class="nav-number">2.</span> <span class="nav-text">2. Method description</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -612,6 +767,26 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
