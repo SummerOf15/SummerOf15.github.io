@@ -79,20 +79,21 @@
 
 
 
-<meta name="description" content="1. Definition局部均值(local means):就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：">
+<meta name="description" content="Definition在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。 信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。 用一种数学的方式来表达这种信息量就是：自信息:如对事件X=">
 <meta name="keywords" content="denseCRF">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Non-Local Means">
-<meta property="og:url" content="https://summerof15.github.io/2018/10/23/Nonlocal_Means/index.html">
+<meta property="og:title" content="K-L Divergence">
+<meta property="og:url" content="https://summerof15.github.io/2018/10/24/K-L Divergence/index.html">
 <meta property="og:site_name" content="code cooking">
-<meta property="og:description" content="1. Definition局部均值(local means):就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：">
+<meta property="og:description" content="Definition在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。 信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。 用一种数学的方式来表达这种信息量就是：自信息:如对事件X=">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://i1.bvimg.com/666187/3af1cd41a503a653.jpg">
-<meta property="og:updated_time" content="2018-10-23T11:31:22.194Z">
+<meta property="og:image" content="http://i4.bvimg.com/666187/92567219fb99c4c9.png">
+<meta property="og:image" content="http://i4.bvimg.com/666187/fbbb4567598828c3.png">
+<meta property="og:updated_time" content="2018-10-24T08:13:36.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Non-Local Means">
-<meta name="twitter:description" content="1. Definition局部均值(local means):就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：">
-<meta name="twitter:image" content="http://i1.bvimg.com/666187/3af1cd41a503a653.jpg">
+<meta name="twitter:title" content="K-L Divergence">
+<meta name="twitter:description" content="Definition在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。 信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。 用一种数学的方式来表达这种信息量就是：自信息:如对事件X=">
+<meta name="twitter:image" content="http://i4.bvimg.com/666187/92567219fb99c4c9.png">
 
 
 
@@ -122,13 +123,13 @@
 
 
 
-  <link rel="canonical" href="https://summerof15.github.io/2018/10/23/Nonlocal_Means/"/>
+  <link rel="canonical" href="https://summerof15.github.io/2018/10/24/K-L Divergence/"/>
 
 
 
 
 
-  <title>Non-Local Means | code cooking</title>
+  <title>K-L Divergence | code cooking</title>
   
 
 
@@ -245,7 +246,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2018/10/23/Nonlocal_Means/">
+    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2018/10/24/K-L Divergence/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhang Kai">
@@ -262,7 +263,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Non-Local Means</h1>
+          <h1 class="post-title" itemprop="name headline">K-L Divergence</h1>
         
 
         <div class="post-meta">
@@ -274,8 +275,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-23T16:04:26+08:00">
-                2018-10-23
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-24T16:12:26+08:00">
+                2018-10-24
               </time>
             
 
@@ -317,19 +318,12 @@
       
 
       
-        <h4 id="1-Definition"><a href="#1-Definition" class="headerlink" title="1. Definition"></a>1. Definition</h4><p><code>局部均值(local means):</code>就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：<br><a id="more"></a></p>
-<script type="math/tex; mode=display">\frac{1}{9}
- \left[
- \begin{matrix}
-   1 & 1 & 1 \\
-   1 & 1 & 1 \\
-   1 & 1 & 1
-  \end{matrix}
-  \right]</script><p><code>非局部均值(Non-local Means):</code>非局部代表使用全局的图片，按照某种相似度的方式进行加权取平均。滤波后图像清晰度高，而且不丢失细节。</p>
-<h4 id="2-Method-description"><a href="#2-Method-description" class="headerlink" title="2. Method description"></a>2. Method description</h4><p>(1)以像点A(x,y)为中心，取[x-d:x+d,y-d:y+d]大小的窗口为搜索区域。另外，以A为中心，取半径为r的[x-r:x+r,y-r:y+r]窗口为邻域窗口，命名为窗口X，其中r&lt; d。<br><img src="http://i1.bvimg.com/666187/3af1cd41a503a653.jpg" alt="NLM"><br>(2)从搜索窗口的左上角开始构建一个同样以r为半径的邻域窗口，假设为窗口Y，对窗口Y与窗口X的相应位置求差的平方和，作为相似度。</p>
-<script type="math/tex; mode=display">||V(x)-V(y)||^2=\frac{1}{d^2}\sum_{z=-d}^{d}||v(x+z)-v(y+z)||^2</script><script type="math/tex; mode=display">w(x,y)=\frac{1}{Z(x)}exp(-\frac{||V(x)-V(y)||^2}{h^2})</script><p>Z(x)为规范化因子</p>
-<script type="math/tex; mode=display">Z(x)=\sum_y exp(-\frac{||V(x)-V(y)||^2}{h^2})</script><p>(3)以相似度为权，乘以邻域窗口Y，然后移动窗口Y重复步骤(2)，以一种类似加权求平均的方式求得最终的区域X中心的像素灰度值。</p>
-<script type="math/tex; mode=display">X(x)=\sum w(x,y)*V(y)</script><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://blog.csdn.net/u010839382/article/details/48229579" target="_blank" rel="noopener">https://blog.csdn.net/u010839382/article/details/48229579</a></p>
+        <h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。</p>
+<p>信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。</p>
+<p>用一种数学的方式来表达这种信息量就是：<br><code>自信息</code>:如对事件X=x的自信息:<script type="math/tex">I(x)=-log(P(x))</script>自信息通常是指对于一个事件的输出，也就是一个事件所蕴含的信息。<br><code>香农熵</code>:针对一个概率分布中的不确定总量(信息量)进行量化。<script type="math/tex">H(x)=-\sum_xP(x)log(P(x))</script>换句话说就是：一个分布的香农熵是指遵循这个分布的事件所产生的期望信息总量。<br><code>KL散度</code>:如果对于随机变量X有两个单独的概率分布P(x)和Q(x)，KL散度可以用来衡量这两个分布的差异，如P分布对Q分布的KL散度：<script type="math/tex">D_{KL}(P||Q)=\sum_xP(x)[log(P(x))-log((Q(x))]</script><br>从信息传递方面解释KL散度是指：当我们使用一种被设计成能够使概率分布Q产生的消息的长度最小的编码时，用这个编码来传递包含概率分布P产生的符号的信息时，所需要的额外的信息量。</p>
+<h4 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h4><h5 id="非负性"><a href="#非负性" class="headerlink" title="非负性"></a>非负性</h5><p>KL散度是非负的。当$D_{KL}(P||Q)=0$时，代表P和Q的分布完全相同。</p>
+<h5 id="非对称性"><a href="#非对称性" class="headerlink" title="非对称性"></a>非对称性</h5><p>KL散度和距离不同之处在于KL散度不是对称的，如$D_{KL}(P||Q)$和$D_{KL}(Q||P)$不一样。从我的理解上说一个是用Q来逼近P，一个是用P来逼近Q，在当两个分布不一样的时候，逼近时采用的策略也不一样。详情可以参看下图。<br><img src="http://i4.bvimg.com/666187/92567219fb99c4c9.png" alt="KL1"><br><img src="http://i4.bvimg.com/666187/fbbb4567598828c3.png" alt="KL2"></p>
+<h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>Books: Deep learning</p>
 
       
     </div>
@@ -360,8 +354,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/18/CRF1/" rel="next" title="Conditional Random Field(条件随机场)">
-                <i class="fa fa-chevron-left"></i> Conditional Random Field(条件随机场)
+              <a href="/2018/10/23/Nonlocal_Means/" rel="next" title="Non-Local Means">
+                <i class="fa fa-chevron-left"></i> Non-Local Means
               </a>
             
           </div>
@@ -369,10 +363,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/24/K-L Divergence/" rel="prev" title="K-L Divergence">
-                K-L Divergence <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -516,7 +506,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-Definition"><span class="nav-number">1.</span> <span class="nav-text">1. Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-Method-description"><span class="nav-number">2.</span> <span class="nav-text">2. Method description</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#Definition"><span class="nav-number">1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Properties"><span class="nav-number">2.</span> <span class="nav-text">Properties</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#非负性"><span class="nav-number">2.1.</span> <span class="nav-text">非负性</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#非对称性"><span class="nav-number">2.2.</span> <span class="nav-text">非对称性</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference"><span class="nav-number">3.</span> <span class="nav-text">Reference</span></a></li></ol></div>
             
 
           </div>
