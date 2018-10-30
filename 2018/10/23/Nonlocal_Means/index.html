@@ -87,12 +87,12 @@
 <meta property="og:site_name" content="code cooking">
 <meta property="og:description" content="1. Definition局部均值(local means):就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://i1.bvimg.com/666187/3af1cd41a503a653.jpg">
-<meta property="og:updated_time" content="2018-10-23T11:31:22.194Z">
+<meta property="og:image" content="https://i.loli.net/2018/10/30/5bd7c150e78d5.bmp">
+<meta property="og:updated_time" content="2018-10-30T02:24:42.662Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Non-Local Means">
 <meta name="twitter:description" content="1. Definition局部均值(local means):就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：">
-<meta name="twitter:image" content="http://i1.bvimg.com/666187/3af1cd41a503a653.jpg">
+<meta name="twitter:image" content="https://i.loli.net/2018/10/30/5bd7c150e78d5.bmp">
 
 
 
@@ -326,7 +326,7 @@
    1 & 1 & 1
   \end{matrix}
   \right]</script><p><code>非局部均值(Non-local Means):</code>非局部代表使用全局的图片，按照某种相似度的方式进行加权取平均。滤波后图像清晰度高，而且不丢失细节。</p>
-<h4 id="2-Method-description"><a href="#2-Method-description" class="headerlink" title="2. Method description"></a>2. Method description</h4><p>(1)以像点A(x,y)为中心，取[x-d:x+d,y-d:y+d]大小的窗口为搜索区域。另外，以A为中心，取半径为r的[x-r:x+r,y-r:y+r]窗口为邻域窗口，命名为窗口X，其中r&lt; d。<br><img src="http://i1.bvimg.com/666187/3af1cd41a503a653.jpg" alt="NLM"><br>(2)从搜索窗口的左上角开始构建一个同样以r为半径的邻域窗口，假设为窗口Y，对窗口Y与窗口X的相应位置求差的平方和，作为相似度。</p>
+<h4 id="2-Method-description"><a href="#2-Method-description" class="headerlink" title="2. Method description"></a>2. Method description</h4><p>(1)以像点A(x,y)为中心，取[x-d:x+d,y-d:y+d]大小的窗口为搜索区域。另外，以A为中心，取半径为r的[x-r:x+r,y-r:y+r]窗口为邻域窗口，命名为窗口X，其中r&lt; d。<br><img src="https://i.loli.net/2018/10/30/5bd7c150e78d5.bmp" alt="nlm1.bmp"><br>(2)从搜索窗口的左上角开始构建一个同样以r为半径的邻域窗口，假设为窗口Y，对窗口Y与窗口X的相应位置求差的平方和，作为相似度。</p>
 <script type="math/tex; mode=display">||V(x)-V(y)||^2=\frac{1}{d^2}\sum_{z=-d}^{d}||v(x+z)-v(y+z)||^2</script><script type="math/tex; mode=display">w(x,y)=\frac{1}{Z(x)}exp(-\frac{||V(x)-V(y)||^2}{h^2})</script><p>Z(x)为规范化因子</p>
 <script type="math/tex; mode=display">Z(x)=\sum_y exp(-\frac{||V(x)-V(y)||^2}{h^2})</script><p>(3)以相似度为权，乘以邻域窗口Y，然后移动窗口Y重复步骤(2)，以一种类似加权求平均的方式求得最终的区域X中心的像素灰度值。</p>
 <script type="math/tex; mode=display">X(x)=\sum w(x,y)*V(y)</script><h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p><a href="https://blog.csdn.net/u010839382/article/details/48229579" target="_blank" rel="noopener">https://blog.csdn.net/u010839382/article/details/48229579</a></p>

@@ -79,21 +79,21 @@
 
 
 
-<meta name="description" content="Definition在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。 信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。 用一种数学的方式来表达这种信息量就是：自信息:如对事件X=">
+<meta name="description" content="Definition在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。 信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。">
 <meta name="keywords" content="denseCRF">
 <meta property="og:type" content="article">
 <meta property="og:title" content="K-L Divergence">
 <meta property="og:url" content="https://summerof15.github.io/2018/10/24/K-L Divergence/index.html">
 <meta property="og:site_name" content="code cooking">
-<meta property="og:description" content="Definition在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。 信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。 用一种数学的方式来表达这种信息量就是：自信息:如对事件X=">
+<meta property="og:description" content="Definition在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。 信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://i4.bvimg.com/666187/92567219fb99c4c9.png">
-<meta property="og:image" content="http://i4.bvimg.com/666187/fbbb4567598828c3.png">
-<meta property="og:updated_time" content="2018-10-24T08:13:36.122Z">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/i26jts.png">
+<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/i2c9XT.png">
+<meta property="og:updated_time" content="2018-10-30T02:05:09.074Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="K-L Divergence">
-<meta name="twitter:description" content="Definition在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。 信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。 用一种数学的方式来表达这种信息量就是：自信息:如对事件X=">
-<meta name="twitter:image" content="http://i4.bvimg.com/666187/92567219fb99c4c9.png">
+<meta name="twitter:description" content="Definition在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。 信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。">
+<meta name="twitter:image" content="https://s1.ax1x.com/2018/10/30/i26jts.png">
 
 
 
@@ -319,10 +319,9 @@
 
       
         <h4 id="Definition"><a href="#Definition" class="headerlink" title="Definition"></a>Definition</h4><p>在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。</p>
-<p>信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。</p>
-<p>用一种数学的方式来表达这种信息量就是：<br><code>自信息</code>:如对事件X=x的自信息:<script type="math/tex">I(x)=-log(P(x))</script>自信息通常是指对于一个事件的输出，也就是一个事件所蕴含的信息。<br><code>香农熵</code>:针对一个概率分布中的不确定总量(信息量)进行量化。<script type="math/tex">H(x)=-\sum_xP(x)log(P(x))</script>换句话说就是：一个分布的香农熵是指遵循这个分布的事件所产生的期望信息总量。<br><code>KL散度</code>:如果对于随机变量X有两个单独的概率分布P(x)和Q(x)，KL散度可以用来衡量这两个分布的差异，如P分布对Q分布的KL散度：<script type="math/tex">D_{KL}(P||Q)=\sum_xP(x)[log(P(x))-log((Q(x))]</script><br>从信息传递方面解释KL散度是指：当我们使用一种被设计成能够使概率分布Q产生的消息的长度最小的编码时，用这个编码来传递包含概率分布P产生的符号的信息时，所需要的额外的信息量。</p>
+<p>信息论中的基本想法是一个发生概率很低的事件发生了比起一件经常发生的事件发生带来的信息量更多。用一个例子来说明：“今天太阳从东边升起”中的信息量没有“今天发生了日食”的信息量大。从“今天发生日食”这句话中我们能够推断出来更多的信息，比如：日月地球在同一条线上。<br><a id="more"></a><br>用一种数学的方式来表达这种信息量就是：<br><code>自信息</code>:如对事件X=x的自信息:<script type="math/tex">I(x)=-log(P(x))</script>自信息通常是指对于一个事件的输出，也就是一个事件所蕴含的信息。<br><code>香农熵</code>:针对一个概率分布中的不确定总量(信息量)进行量化。<script type="math/tex">H(x)=-\sum_xP(x)log(P(x))</script>换句话说就是：一个分布的香农熵是指遵循这个分布的事件所产生的期望信息总量。<br><code>KL散度</code>:如果对于随机变量X有两个单独的概率分布P(x)和Q(x)，KL散度可以用来衡量这两个分布的差异，如P分布对Q分布的KL散度：<script type="math/tex">D_{KL}(P||Q)=\sum_xP(x)[log(P(x))-log((Q(x))]</script><br>从信息传递方面解释KL散度是指：当我们使用一种被设计成能够使概率分布Q产生的消息的长度最小的编码时，用这个编码来传递包含概率分布P产生的符号的信息时，所需要的额外的信息量。</p>
 <h4 id="Properties"><a href="#Properties" class="headerlink" title="Properties"></a>Properties</h4><h5 id="非负性"><a href="#非负性" class="headerlink" title="非负性"></a>非负性</h5><p>KL散度是非负的。当$D_{KL}(P||Q)=0$时，代表P和Q的分布完全相同。</p>
-<h5 id="非对称性"><a href="#非对称性" class="headerlink" title="非对称性"></a>非对称性</h5><p>KL散度和距离不同之处在于KL散度不是对称的，如$D_{KL}(P||Q)$和$D_{KL}(Q||P)$不一样。从我的理解上说一个是用Q来逼近P，一个是用P来逼近Q，在当两个分布不一样的时候，逼近时采用的策略也不一样。详情可以参看下图。<br><img src="http://i4.bvimg.com/666187/92567219fb99c4c9.png" alt="KL1"><br><img src="http://i4.bvimg.com/666187/fbbb4567598828c3.png" alt="KL2"></p>
+<h5 id="非对称性"><a href="#非对称性" class="headerlink" title="非对称性"></a>非对称性</h5><p>KL散度和距离不同之处在于KL散度不是对称的，如$D_{KL}(P||Q)$和$D_{KL}(Q||P)$不一样。从我的理解上说一个是用Q来逼近P，一个是用P来逼近Q，在当两个分布不一样的时候，逼近时采用的策略也不一样。详情可以参看下图。<br><a href="https://imgchr.com/i/i26jts" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/30/i26jts.png" alt="i26jts.png"></a><br><a href="https://imgchr.com/i/i2c9XT" target="_blank" rel="noopener"><img src="https://s1.ax1x.com/2018/10/30/i2c9XT.png" alt="i2c9XT.png"></a></p>
 <h4 id="Reference"><a href="#Reference" class="headerlink" title="Reference"></a>Reference</h4><p>Books: Deep learning</p>
 
       
