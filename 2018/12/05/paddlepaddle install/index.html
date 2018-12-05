@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="thesis_notes," />
+  <meta name="keywords" content="paddlepaddle," />
 
 
 
@@ -79,18 +79,33 @@
 
 
 
-<meta name="description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)">
-<meta name="keywords" content="thesis_notes">
+<meta name="description" content="因为paddlepaddle只支持windows的docker下的配置，但是docker下的编程不是很方便，考虑到pycharm支持远程python编辑器，所以考虑使用pycharm结合docker进行windows下的paddlepaddle环境搭建。">
+<meta name="keywords" content="paddlepaddle">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hidden Markov Model(隐马尔可夫模型)(一)">
-<meta property="og:url" content="https://summerof15.github.io/2018/10/16/HMM1/index.html">
+<meta property="og:title" content="windows7+Pycharm+Docker+paddlepaddle配置">
+<meta property="og:url" content="https://summerof15.github.io/2018/12/05/paddlepaddle install/index.html">
 <meta property="og:site_name" content="code cooking">
-<meta property="og:description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)">
+<meta property="og:description" content="因为paddlepaddle只支持windows的docker下的配置，但是docker下的编程不是很方便，考虑到pycharm支持远程python编辑器，所以考虑使用pycharm结合docker进行windows下的paddlepaddle环境搭建。">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-10-22T12:57:41.830Z">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuv9ozftj30r40fi0v9.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuwzo8o9j30k30c7abd.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuxseri2j309a065mx8.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuyfaq09j30kg0dbjtm.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuyxjsaaj30kb036aae.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv08fd2gj30jz02awep.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv0xzfgxj30ej01t3yh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv15omqoj30f006qjrh.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv25yeqnj30sk0abq48.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv3ceqjoj30nh0g4dgz.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv3jctabj30co0ev3ze.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv4kpt5sj30f906eaau.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv5ceuuaj308l04l0t6.jpg">
+<meta property="og:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv5n0xp2j30d6011wee.jpg">
+<meta property="og:updated_time" content="2018-12-05T06:47:10.250Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hidden Markov Model(隐马尔可夫模型)(一)">
-<meta name="twitter:description" content="1. 基本概念隐藏的马尔可夫链根据时间的变化生成的状态的序列称为状态序列（state sequence),根据这些状态实际观察到的序列为观测序列(observation sequence)">
+<meta name="twitter:title" content="windows7+Pycharm+Docker+paddlepaddle配置">
+<meta name="twitter:description" content="因为paddlepaddle只支持windows的docker下的配置，但是docker下的编程不是很方便，考虑到pycharm支持远程python编辑器，所以考虑使用pycharm结合docker进行windows下的paddlepaddle环境搭建。">
+<meta name="twitter:image" content="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuv9ozftj30r40fi0v9.jpg">
 
 
 
@@ -120,13 +135,13 @@
 
 
 
-  <link rel="canonical" href="https://summerof15.github.io/2018/10/16/HMM1/"/>
+  <link rel="canonical" href="https://summerof15.github.io/2018/12/05/paddlepaddle install/"/>
 
 
 
 
 
-  <title>Hidden Markov Model(隐马尔可夫模型)(一) | code cooking</title>
+  <title>windows7+Pycharm+Docker+paddlepaddle配置 | code cooking</title>
   
 
 
@@ -243,7 +258,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2018/10/16/HMM1/">
+    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2018/12/05/paddlepaddle install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhang Kai">
@@ -260,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hidden Markov Model(隐马尔可夫模型)(一)</h1>
+          <h1 class="post-title" itemprop="name headline">windows7+Pycharm+Docker+paddlepaddle配置</h1>
         
 
         <div class="post-meta">
@@ -272,8 +287,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-16T16:04:26+08:00">
-                2018-10-16
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-12-05T14:04:26+08:00">
+                2018-12-05
               </time>
             
 
@@ -315,56 +330,11 @@
       
 
       
-        <h3 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h3><p>隐藏的马尔可夫链根据时间的变化生成的状态的序列称为<code>状态序列</code>（state sequence),根据这些状态实际观察到的序列为<code>观测序列</code>(observation sequence)<br><a id="more"></a></p>
-<ul>
-<li>所有可能的状态集合 $Q=\{q_1,q_2,…,q_N\}$</li>
-<li>所有可能的观测集合 $V=\{v_1,v_2,…,v_M\}$</li>
-<li>长度为T的状态序列$I$及对应的观测序列$O$: <script type="math/tex">I=\{i_1,i_2,...,i_T\}$$$$O=\{O_1,O_2,...,O_T\}</script></li>
-<li>状态转移概率矩阵 $A=[a_{ij}]_{N \times N}$ 其中$a_{ij}=P(i_{t+1}=q_j \mid i_t=q_i)$表示在时刻$t$处于状态$q_i$的条件下在时刻$t+1$转移到$q_j$的概率。 </li>
-<li>观测概率矩阵 $B=[b_j(k)]_{N\times M}$ 其中,$b_j(k)=P(o_t=v_k \mid i_t=q_j)$$ k=1,2,…,M;j=1,2,…,N$<br>表示在时刻$t$处于状态$q_j$的条件下生成观测$v_k$的概率。</li>
-<li>$\pi$是初始概率向量 $\pi = (\pi_i)$ 其中,$\pi_i=P(i_1=q_i)$是时刻$t=1$处于状态$q_i$的概率。</li>
-</ul>
-<p>隐马尔可夫模型可以表示为：</p>
-<script type="math/tex; mode=display">\lambda=(A,B,\pi)</script><p>$\pi$和$A$决定状态序列,$B$决定观测序列</p>
-<p>隐马尔可夫模型基于两个假设：</p>
-<ol>
-<li>隐藏的马尔可夫链在任意时刻t的状态只与前一时刻的状态有关,与其它时刻的状态和观测无关。</li>
-<li>任意时刻的观测只和当前时刻的状态有关,与其它时刻的状态及观测无关。</li>
-</ol>
-<h3 id="2-例子"><a href="#2-例子" class="headerlink" title="2. 例子"></a>2. 例子</h3><p>下面通过一个例子来介绍一下隐马尔可夫模型的参数。<br>假设有三个盒子，分别编号box1,box2,box3，盒子里面分别有白球和红球。</p>
-<ul>
-<li>则所有的状态集合$Q=\{box1,box2,box3\}$</li>
-<li>所有的观测集合为$V=\{白球,红球\}$</li>
-</ul>
-<p>现在从三个盒子中按照box1,box3,box2的次序依次拿一个球，拿出来的结果为：红，白，白。此时，</p>
-<ul>
-<li>状态序列$I=\{box1,box3,box2\}$</li>
-<li>观测序列$O=\{红，白，白\}$</li>
-<li>$T=3$</li>
-</ul>
-<p>假设从box1取完球，再到box2取球的概率为$a_{12}$，并以此类推，则状态转移概率矩阵$A$为</p>
-<script type="math/tex; mode=display">
- \left[
- \begin{matrix}
-   a_{11} & a_{12} & a_{13} \\
-   a_{21} & a_{22} & a_{23} \\
-   a_{31} & a_{32} & a_{33}
-  \end{matrix}
-  \right]</script><p>假设在box1中摸到白球的概率为$P_{1白}$，摸到红球的概率为$P_{1红}$,以此类推。则观测概率矩阵$B$为</p>
-<script type="math/tex; mode=display">
- \left[
- \begin{matrix}
-   P_{1白} & P_{1红}\\
-   P_{2白} & P_{2红}\\
-   P_{3白} & P_{3红}
-  \end{matrix}
-  \right]</script><p>假如第一次去box1取球的概率为$\pi_1$，第一次去box2取球的概率为$\pi_2$，第一次去box3取球的概率为$\pi_3$，那么初始概率向量$\pi$可以表示为：</p>
-<script type="math/tex; mode=display">
- \left\{
- \begin{matrix}
-   \pi_1 & \pi_2 & \pi_3
-  \end{matrix}
-  \right\}</script>
+        <p>因为paddlepaddle只支持windows的docker下的配置，但是docker下的编程不是很方便，考虑到pycharm支持远程python编辑器，所以考虑使用pycharm结合docker进行windows下的paddlepaddle环境搭建。<br><a id="more"></a></p>
+<h4 id="docker配置"><a href="#docker配置" class="headerlink" title="docker配置"></a>docker配置</h4><p>首先下载docker，安装的时候一定要记得安装virtuoBox，然后按照官方的教程pull下来paddlepaddle的docker image。<br>然后打开virtuoBox。<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuv9ozftj30r40fi0v9.jpg" alt=""><br>点击<code>共享文件夹</code>。<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuwzo8o9j30k30c7abd.jpg" alt=""><br>上面的路径是我分配过的，想要设置自己的同步文件路径可以点击右上角的符号，比如这样设置：<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuxseri2j309a065mx8.jpg" alt=""><br>代表把windows本机的文件夹E：\doc和docker中的doc文件夹进行同步。<br>在确定之后启动虚拟机<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuyfaq09j30kg0dbjtm.jpg" alt=""><br>使用ls命令可以看到我之前添加的pypaddle文件夹<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvuyxjsaaj30kb036aae.jpg" alt=""><br>这个文件夹是对应我的windows电脑的<code>F:/java/pypaddle</code>。<br>接下来运行镜像（我要在pypaddle文件夹中用pycharm写程序，所以我把pypaddle文件夹与paddlepaddle镜像中进行文件同步，同步文件夹为<code>/opt/program</code>）<br>使用如下命令：<br>docker run -it -v pypaddle:/opt/program hub.baidubce.com/paddlepaddle/paddle /bin/bash<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv08fd2gj30jz02awep.jpg" alt=""><br>进入相应的文件夹下，可以看到<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv0xzfgxj30ej01t3yh.jpg" alt=""><br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv15omqoj30f006qjrh.jpg" alt=""><br>此时，文件同步已经完成。</p>
+<h4 id="pycharm配置"><a href="#pycharm配置" class="headerlink" title="pycharm配置"></a>pycharm配置</h4><p>Pycharm一定要用professional版本的才行。具体应该如何下载请自行百度。<br>在pycharm中，打开一个工程，进入settings。<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv25yeqnj30sk0abq48.jpg" alt=""><br>右边设置处点击出现add，进入。<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv3ceqjoj30nh0g4dgz.jpg" alt=""><br>点击new<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv3jctabj30co0ev3ze.jpg" alt=""><br>修改下面的path，其中virtuo machine path指的是虚拟机的path，localpath是指本机的path<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv4kpt5sj30f906eaau.jpg" alt=""><br>在我的工程中，我按照F:/program/java/pypaddle映射到opt/program的方式设置之后如下<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv5ceuuaj308l04l0t6.jpg" alt=""><br>设置完成之后点击确定，需要等待一段时间。<br>等到程序运行结束之后，就可以在pycharm中写paddlepaddle的代码了。</p>
+<h4 id="PS"><a href="#PS" class="headerlink" title="PS"></a>PS</h4><p>但是有一个问题没有解决，程序的运行需要在virtuobox的命令行运行。<br><img src="http://ww1.sinaimg.cn/mw690/006c6RCqgy1fxvv5n0xp2j30d6011wee.jpg" alt=""><br>不能直接在pycharm中运行，会报错。<br>我现在还不知道怎么解决这个问题，如果哪位朋友知道，欢迎分享。</p>
+
       
     </div>
     
@@ -381,7 +351,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/thesis-notes/" rel="tag"># thesis_notes</a>
+            <a href="/tags/paddlepaddle/" rel="tag"># paddlepaddle</a>
           
         </div>
       
@@ -394,8 +364,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/07/18/optical flow/" rel="next" title="Hight Accuracy Optical Flow Estimation Based on a Theory for Warping_ reading notes">
-                <i class="fa fa-chevron-left"></i> Hight Accuracy Optical Flow Estimation Based on a Theory for Warping_ reading notes
+              <a href="/2018/10/24/K-L Divergence/" rel="next" title="K-L Divergence">
+                <i class="fa fa-chevron-left"></i> K-L Divergence
               </a>
             
           </div>
@@ -403,10 +373,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/18/CRF1/" rel="prev" title="Conditional Random Field(条件随机场)">
-                Conditional Random Field(条件随机场) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -550,7 +516,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-基本概念"><span class="nav-number">1.</span> <span class="nav-text">1. 基本概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-例子"><span class="nav-number">2.</span> <span class="nav-text">2. 例子</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#docker配置"><span class="nav-number">1.</span> <span class="nav-text">docker配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#pycharm配置"><span class="nav-number">2.</span> <span class="nav-text">pycharm配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#PS"><span class="nav-number">3.</span> <span class="nav-text">PS</span></a></li></ol></div>
             
 
           </div>
@@ -805,26 +771,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
