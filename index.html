@@ -243,6 +243,138 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2019/04/13/ensemble learning/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhang Kai">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="code cooking">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/13/ensemble learning/" itemprop="url">Ensemble learning(集成学习)</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-04-13T20:36:26+08:00">
+                2019-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h2><p>集成学习通常是构建并结合多个分类器来完成学习任务。</p>
+<p>目前的集成学习方法大致分为两类：</p>
+<ul>
+<li>个体学习器问存在强依赖关系、必须串行生成的序列化方法，代表有<code>Boosting</code></li>
+<li>个体学习器间不存在强依赖关系、可同时生成的并行化方法 ，代表有<code>Bagging</code>和<code>Random Forest</code></li>
+</ul>
+<h4 id="1-装袋-bagging"><a href="#1-装袋-bagging" class="headerlink" title="1 装袋(bagging)"></a>1 装袋(bagging)</h4><p>装袋是一种投票的方法，是通过在一个较大的数据集中进行有放回的抽样，形成多个具有一定重复但是不完全重复的数据集，然后再这些小数据集上面进行训练基学习器$d_i$ 。</p>
+<p>当需要对一个数据集进行预测的时候，可以使用以上训练的基分类器分别进行预测，然后基于分类器预测的结果进行投票决定最终的结果。类似于“少数服从多数”的原则。也有其他的方式来确定最终的预测结果，比如基于每一个分类器在训练集上的错误率$\alpha$ 的倒数作为每个分类器的权重:</p>
+<script type="math/tex; mode=display">final result=\sum_{i}^{t} \frac{d_i}{alpha_i}</script><h4 id="2-提升-boosting"><a href="#2-提升-boosting" class="headerlink" title="2 提升(boosting)"></a>2 提升(boosting)</h4><p>装袋中，产生互补的基学习器是靠运气以及学习方法的不稳定性。在提升中，通过在前一个学习器所犯的错误上训练下一个学习器，逐步尝试产生互补的学习器。</p>
+<p>这种方法不需要每一个分类器十分强，即分类效果十分好，只要达到在正确率大于$1/2$即可，通过组合多个弱分类器，最终经过投票等策略，得到一个强分类器，获得较好的实验效果。</p>
+<h5 id="2-1-adaboost"><a href="#2-1-adaboost" class="headerlink" title="2.1 adaboost"></a>2.1 adaboost</h5><p>由于boosting的方法需要多个分类器，并且后续的分类器都是基于前一个分类器的错误的数据集进行训练，所以在最开始需要一个很大的数据集。为了解决这个问题，学者在1996年提出一种新的boosting变种:  <code>Adaboost</code> 。这种方式是基于同一个数据集，然后可以训练多个分类器。</p>
+<p>Adaboost主要是通过根据前一个分类器的结果，更新训练集中每一个训练样本被下一个分类器选中进行训练的概率，从而构建新的训练集，然后训练具有一定互补能力的基分类器。</p>
+<p>完成训练之后，Adaboost就采用投票的方法，给定一个实例，所有的基分类器$d_i$ 决定其分类，而后取一个加权的分类结果，其中权重与基分类器在训练集上的准确率成正比。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2018/12/05/paddlepaddle install/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1021,7 +1153,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -1089,7 +1221,7 @@
       <div class="footer-inner">
         <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js">
 </script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
