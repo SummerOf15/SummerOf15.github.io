@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="thesis notes," />
+  <meta name="keywords" content="C++," />
 
 
 
@@ -79,27 +79,18 @@
 
 
 
-<meta name="description" content="1. 基本概念条件随机场（crf）：是给定一组输入随机变量条件下，另一组输出随机变量的条件概率的分布模型.线性链条件随机场：定义在线性链上的特殊的条件随机场（输出变量$Y_i$只与$Y_{i-1},Y_{i+1}$有关）用数学式子表达就是P(Y|X)，在标注过程中，Y是输出变量，表示标记序列，X是输入变量，表示需要标记的观测序列。比如在自然语言处理中，X是句子（词向量），Y则是对应的词性标注（名词">
-<meta name="keywords" content="thesis notes">
+<meta name="description" content="Simplify Expressions Use less multification/division and more plus/minus. For example,  123y=a*x*x*x+b*x*x+c*x+d;//6 multification// ==&amp;gt;y=((a*x+b)*x+c)*x+d; //3 multification  Use more int instead">
+<meta name="keywords" content="C++">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Conditional Random Field(条件随机场)">
-<meta property="og:url" content="https://summerof15.github.io/2018/10/18/CRF1/index.html">
+<meta property="og:title" content="C++ optimization">
+<meta property="og:url" content="https://summerof15.github.io/2019/12/14/C++ optimization/index.html">
 <meta property="og:site_name" content="code cooking">
-<meta property="og:description" content="1. 基本概念条件随机场（crf）：是给定一组输入随机变量条件下，另一组输出随机变量的条件概率的分布模型.线性链条件随机场：定义在线性链上的特殊的条件随机场（输出变量$Y_i$只与$Y_{i-1},Y_{i+1}$有关）用数学式子表达就是P(Y|X)，在标注过程中，Y是输出变量，表示标记序列，X是输入变量，表示需要标记的观测序列。比如在自然语言处理中，X是句子（词向量），Y则是对应的词性标注（名词">
+<meta property="og:description" content="Simplify Expressions Use less multification/division and more plus/minus. For example,  123y=a*x*x*x+b*x*x+c*x+d;//6 multification// ==&amp;gt;y=((a*x+b)*x+c)*x+d; //3 multification  Use more int instead">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/i2cVhR.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/i2c7CR.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/i2cm1x.gif">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/i2chbF.png">
-<meta property="og:image" content="https://i.loli.net/2018/10/30/5bd7c1894b811.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/i2cfDU.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/i2cWuT.png">
-<meta property="og:image" content="https://s1.ax1x.com/2018/10/30/i2c2vV.png">
-<meta property="og:updated_time" content="2018-10-30T02:25:31.075Z">
+<meta property="og:updated_time" content="2019-12-14T14:41:49.759Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Conditional Random Field(条件随机场)">
-<meta name="twitter:description" content="1. 基本概念条件随机场（crf）：是给定一组输入随机变量条件下，另一组输出随机变量的条件概率的分布模型.线性链条件随机场：定义在线性链上的特殊的条件随机场（输出变量$Y_i$只与$Y_{i-1},Y_{i+1}$有关）用数学式子表达就是P(Y|X)，在标注过程中，Y是输出变量，表示标记序列，X是输入变量，表示需要标记的观测序列。比如在自然语言处理中，X是句子（词向量），Y则是对应的词性标注（名词">
-<meta name="twitter:image" content="https://s1.ax1x.com/2018/10/30/i2cVhR.png">
+<meta name="twitter:title" content="C++ optimization">
+<meta name="twitter:description" content="Simplify Expressions Use less multification/division and more plus/minus. For example,  123y=a*x*x*x+b*x*x+c*x+d;//6 multification// ==&amp;gt;y=((a*x+b)*x+c)*x+d; //3 multification  Use more int instead">
 
 
 
@@ -129,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://summerof15.github.io/2018/10/18/CRF1/"/>
+  <link rel="canonical" href="https://summerof15.github.io/2019/12/14/C++ optimization/"/>
 
 
 
 
 
-  <title>Conditional Random Field(条件随机场) | code cooking</title>
+  <title>C++ optimization | code cooking</title>
   
 
 
@@ -272,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2018/10/18/CRF1/">
+    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2019/12/14/C++ optimization/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhang Kai">
@@ -289,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Conditional Random Field(条件随机场)</h1>
+          <h1 class="post-title" itemprop="name headline">C++ optimization</h1>
         
 
         <div class="post-meta">
@@ -301,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-18T16:04:26+01:00">
-                2018-10-18
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-14T15:04:26+01:00">
+                2019-12-14
               </time>
             
 
@@ -344,21 +335,39 @@
       
 
       
-        <h4 id="1-基本概念"><a href="#1-基本概念" class="headerlink" title="1. 基本概念"></a>1. 基本概念</h4><p><code>条件随机场（crf）</code>：是给定一组输入随机变量条件下，另一组输出随机变量的条件概率的分布模型.<br><code>线性链条件随机场</code>：定义在线性链上的特殊的条件随机场（输出变量$Y_i$只与$Y_{i-1},Y_{i+1}$有关）用数学式子表达就是P(Y|X)，在标注过程中，Y是输出变量，表示标记序列，X是输入变量，表示需要标记的观测序列。比如在自然语言处理中，X是句子（词向量），Y则是对应的词性标注（名词、动词、形容词）<br><a id="more"></a><br><code>条件随机场应用过程</code>：应用过程分为两个步骤。</p>
-<ul>
-<li>学习：在训练数据上通过极大似然估计得到一个最符合的条件概率模型$\hat{P}(Y|X)$</li>
-<li>预测：利用训练好的条件概率模型$\hat{P}(Y|X)$，输入序列X，获得概率最大的$\hat{y}$</li>
+        <h3 id="Simplify-Expressions"><a href="#Simplify-Expressions" class="headerlink" title="Simplify Expressions"></a>Simplify Expressions</h3><ul>
+<li>Use less multification/division and more plus/minus. For example,</li>
 </ul>
-<h4 id="2-CRF的表示"><a href="#2-CRF的表示" class="headerlink" title="2. CRF的表示"></a>2. CRF的表示</h4><p>线性链条件随机场的参数化形式为：<br><img src="https://s1.ax1x.com/2018/10/30/i2cVhR.png" alt="linear chain crf.png"><br><img src="https://s1.ax1x.com/2018/10/30/i2c7CR.png" alt="Z(x)"><br>其中，$t_k$和$S_l$是特征函数，$t_k$表示转移特征(transition function)，$S_l$表示状态特征函数，通常两个函数取值为1或者0. Z(x)为规范化因子(normalization factor)，相当于对所有输出的统计，使得最终结果在1以内。$\lambda_k,\mu_l$为权重，是将来学习的参数。<br>这个式子可以用在这个例子中：在一个标注问题中，输入观测序列为$X=(X_1,X_2,X_3)$，输出序列为$Y=(Y_1,Y_2,Y_3)$，取值为{1,2}，现在给相应的特征函数$t_k$和$s_l$以及对应的权值$\lambda_k,\mu_l$，求对于给定的观测序列<em>x</em>,输出标记序列为y=(1,2,2)的概率。(具体问题请参考李航 统计学习方法)</p>
-<h4 id="3-条件随机场的学习算法"><a href="#3-条件随机场的学习算法" class="headerlink" title="3. 条件随机场的学习算法"></a>3. 条件随机场的学习算法</h4><h5 id="3-1-改进的迭代尺度算法-IIS"><a href="#3-1-改进的迭代尺度算法-IIS" class="headerlink" title="3.1 改进的迭代尺度算法(IIS)"></a>3.1 改进的迭代尺度算法(IIS)</h5><p>IIS的想法是：假设最大熵模型当前的参数向量是$w=(w_1,w_2,…,w_n)^T$，希望找到一个新的参数向量w+$\delta$使得模型的对数似然值增大，然后不断循环这个过程直到$\delta$小于某个阈值，可以认为现在w达到了最理想的值。</p>
-<h5 id="3-2-拟牛顿法"><a href="#3-2-拟牛顿法" class="headerlink" title="3.2 拟牛顿法"></a>3.2 拟牛顿法</h5><p><img src="https://s1.ax1x.com/2018/10/30/i2cm1x.gif" alt="Newton method"></p>
-<h5 id="4-条件随机场的预测算法"><a href="#4-条件随机场的预测算法" class="headerlink" title="4. 条件随机场的预测算法"></a>4. 条件随机场的预测算法</h5><p>条件随机场的预测问题是给定条件随机场P(Y|X)和输入序列x，求条件概率最大的输出序列y。<br>常用的算法为viterbi算法。(原理与dijestela最短路径算法相似)<br><img src="https://s1.ax1x.com/2018/10/30/i2chbF.png" alt="viterbi_pic"><br>预测算法的目标可以表达成y=argmax(P(y|x))等效于argmax(w*F(y,x))<br>算法步骤：</p>
-<ol>
-<li>初始化：从第一个预测序列$y_0$开始，求w*F(y,x)。<br><img src="https://i.loli.net/2018/10/30/5bd7c1894b811.png" alt="viterbi_1.png"></li>
-<li>递推，依次求出剩余的预测序列的最大概率以及最大概率所对应路径。<br><img src="https://s1.ax1x.com/2018/10/30/i2cfDU.png" alt="viterbi_2"></li>
-<li>递推直到结束，获取$y_n$对应的最大概率以及路径。<br><img src="https://s1.ax1x.com/2018/10/30/i2cWuT.png" alt="viterbi_3"></li>
-<li>从后往前一步一步返回最优路径<br><img src="https://s1.ax1x.com/2018/10/30/i2c2vV.png" alt="viterbi_4"><br>最终的最优路径是$y^<em>=(y_1^</em>,y_2^<em>,…,y_n^</em>)$<h4 id="Reference："><a href="#Reference：" class="headerlink" title="Reference："></a>Reference：</h4><a href="https://www.cnblogs.com/pinking/p/9194865.html" target="_blank" rel="noopener">https://www.cnblogs.com/pinking/p/9194865.html</a><br><a href="https://blog.csdn.net/wkebj/article/details/77965714" target="_blank" rel="noopener">https://blog.csdn.net/wkebj/article/details/77965714</a><br>李航《统计学习方法》</li>
-</ol>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y=a*x*x*x+b*x*x+c*x+d;<span class="comment">//6 multification</span></span><br><span class="line"><span class="comment">// ==&gt;</span></span><br><span class="line">y=((a*x+b)*x+c)*x+d; <span class="comment">//3 multification</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><p>Use more <strong>int</strong> instead of <strong>float</strong></p>
+<a id="more"></a>
+<h3 id="Group-Constants-Together"><a href="#Group-Constants-Together" class="headerlink" title="Group Constants Together"></a>Group Constants Together</h3></li>
+<li><p>Always group constant expressions together with parentheses, or put them on the left side of the expression. Use a <strong>const</strong> variable or put them in a <strong>constexpr</strong> function.</p>
+</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">seconds=<span class="number">24</span>*days*<span class="number">60</span>*<span class="number">60</span>;</span><br><span class="line"><span class="comment">// ==&gt;</span></span><br><span class="line">seconds=<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*days; <span class="comment">// or</span></span><br><span class="line"><span class="keyword">const</span> a=<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>;</span><br><span class="line">seconds=a*days;</span><br></pre></td></tr></table></figure>
+<h3 id="Use-Less-Expensive-Operators"><a href="#Use-Less-Expensive-Operators" class="headerlink" title="Use Less-Expensive Operators"></a>Use Less-Expensive Operators</h3><ul>
+<li><p>Use <strong>shift</strong> instead of <strong>multiplication</strong>. For example,</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x*<span class="number">4</span>;</span><br><span class="line"><span class="comment">// ==&gt;</span></span><br><span class="line">x&lt;&lt;<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Rewrite a <strong>multiplication</strong> into a sequence of <strong>shifts</strong> and <strong>adds</strong>.</p>
+</li>
+</ul>
+<h3 id="Double-May-Be-Faster-than-Float"><a href="#Double-May-Be-Faster-than-Float" class="headerlink" title="Double May Be Faster than Float"></a>Double May Be Faster than Float</h3><ul>
+<li><strong>Double</strong> floating -point computations were faster than <strong>float</strong> floating -point computations.</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> d, t, a = <span class="number">-9.8</span>, v0 = <span class="number">0.0</span>, d0 = <span class="number">100.0</span>; <span class="comment">// 1000w iterations: 1.685s</span></span><br><span class="line"><span class="keyword">for</span> (t = <span class="number">0.0</span>; t &lt; <span class="number">3.01</span>; t++)</span><br><span class="line">&#123;</span><br><span class="line">    d = a * t * t + v0 * t + d0;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// is faster than</span></span><br><span class="line"><span class="keyword">float</span> d, t, a = <span class="number">-9.8</span>, v0 = <span class="number">0.0</span>, d0 = <span class="number">100.0</span>; <span class="comment">// 1000w iterations: 2.102s</span></span><br><span class="line"><span class="keyword">for</span> (t = <span class="number">0.0</span>; t &lt; <span class="number">3.01</span>; t++)</span><br><span class="line">&#123;</span><br><span class="line">    d = a * t * t + v0 * t + d0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Optimize-Control-Flow-Idioms"><a href="#Optimize-Control-Flow-Idioms" class="headerlink" title="Optimize Control Flow Idioms"></a>Optimize Control Flow Idioms</h3><ul>
+<li>In any case, the compiler never emits code for a <strong>switch</strong> statement that is slower than an equivalent <strong>if-then</strong> statement.</li>
+</ul>
+<h3 id="Use-Virtual-Functions-Instead-of-switch-or-if"><a href="#Use-Virtual-Functions-Instead-of-switch-or-if" class="headerlink" title="Use Virtual Functions Instead of switch or if"></a>Use Virtual Functions Instead of switch or if</h3><ul>
+<li><p>In the case of polymorphic behavior in a program, if we want a discriminator variable that told what the particular <em>struct</em> or <em>union</em> represented. For example,</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (p-&gt;animalType == TIGER) &#123;</span><br><span class="line">	tiger_pounce(p-&gt;tiger);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (p-&gt;animalType == RABBIT) &#123;</span><br><span class="line">	rabit_hop(p-&gt;rabbit);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (...)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>can be changed to </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Animal::move()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;animalType == TIGER) &#123;</span><br><span class="line">		pounce();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;animalType == RABBIT) &#123;</span><br><span class="line">        hop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (...)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -376,7 +385,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/thesis-notes/" rel="tag"># thesis notes</a>
+            <a href="/tags/C/" rel="tag"># C++</a>
           
         </div>
       
@@ -389,8 +398,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/10/16/HMM1/" rel="next" title="Hidden Markov Model(隐马尔可夫模型)(一)">
-                <i class="fa fa-chevron-left"></i> Hidden Markov Model(隐马尔可夫模型)(一)
+              <a href="/2019/12/06/XV6 SYSTEM(Chapter 0-1 first process)/" rel="next" title="XV6 SYSTEM(Chapter 0-1 first process)">
+                <i class="fa fa-chevron-left"></i> XV6 SYSTEM(Chapter 0-1 first process)
               </a>
             
           </div>
@@ -398,10 +407,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/10/23/Nonlocal_Means/" rel="prev" title="Non-Local Means">
-                Non-Local Means <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -545,7 +550,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-基本概念"><span class="nav-number">1.</span> <span class="nav-text">1. 基本概念</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-CRF的表示"><span class="nav-number">2.</span> <span class="nav-text">2. CRF的表示</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-条件随机场的学习算法"><span class="nav-number">3.</span> <span class="nav-text">3. 条件随机场的学习算法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-1-改进的迭代尺度算法-IIS"><span class="nav-number">3.1.</span> <span class="nav-text">3.1 改进的迭代尺度算法(IIS)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-2-拟牛顿法"><span class="nav-number">3.2.</span> <span class="nav-text">3.2 拟牛顿法</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-条件随机场的预测算法"><span class="nav-number">3.3.</span> <span class="nav-text">4. 条件随机场的预测算法</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Reference："><span class="nav-number">4.</span> <span class="nav-text">Reference：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Simplify-Expressions"><span class="nav-number">1.</span> <span class="nav-text">Simplify Expressions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Group-Constants-Together"><span class="nav-number">2.</span> <span class="nav-text">Group Constants Together</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Less-Expensive-Operators"><span class="nav-number">3.</span> <span class="nav-text">Use Less-Expensive Operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Double-May-Be-Faster-than-Float"><span class="nav-number">4.</span> <span class="nav-text">Double May Be Faster than Float</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimize-Control-Flow-Idioms"><span class="nav-number">5.</span> <span class="nav-text">Optimize Control Flow Idioms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Virtual-Functions-Instead-of-switch-or-if"><span class="nav-number">6.</span> <span class="nav-text">Use Virtual Functions Instead of switch or if</span></a></li></ol></div>
             
 
           </div>
@@ -800,26 +805,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
