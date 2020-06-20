@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="C++," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Simplify Expressions Use less multification/division and more plus/minus. For example,  123y=a*x*x*x+b*x*x+c*x+d;//6 multification// ==&amp;gt;y=((a*x+b)*x+c)*x+d; //3 multification  Use more int instead">
-<meta name="keywords" content="C++">
+<meta name="description" content="Useful TensorFlow 2.x code segmentslearning rate warm up1234567891011args.start_lr=1e-6args.learning_rate=5e-5def myschedule(step,args,base_lr):    if step &amp;lt;= 500:        base_lr=args.start_lr+(arg">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C++ optimization">
-<meta property="og:url" content="https://summerof15.github.io/2019/12/14/C++ optimization/index.html">
+<meta property="og:title" content="Useful TensorFlow 2.x code segments">
+<meta property="og:url" content="https://summerof15.github.io/2020/06/20/Useful-TensorFlow-2.x-code-segments/index.html">
 <meta property="og:site_name" content="code cooking">
-<meta property="og:description" content="Simplify Expressions Use less multification/division and more plus/minus. For example,  123y=a*x*x*x+b*x*x+c*x+d;//6 multification// ==&amp;gt;y=((a*x+b)*x+c)*x+d; //3 multification  Use more int instead">
+<meta property="og:description" content="Useful TensorFlow 2.x code segmentslearning rate warm up1234567891011args.start_lr=1e-6args.learning_rate=5e-5def myschedule(step,args,base_lr):    if step &amp;lt;= 500:        base_lr=args.start_lr+(arg">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2019-12-14T14:41:49.759Z">
+<meta property="og:updated_time" content="2020-06-20T08:25:33.869Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="C++ optimization">
-<meta name="twitter:description" content="Simplify Expressions Use less multification/division and more plus/minus. For example,  123y=a*x*x*x+b*x*x+c*x+d;//6 multification// ==&amp;gt;y=((a*x+b)*x+c)*x+d; //3 multification  Use more int instead">
+<meta name="twitter:title" content="Useful TensorFlow 2.x code segments">
+<meta name="twitter:description" content="Useful TensorFlow 2.x code segmentslearning rate warm up1234567891011args.start_lr=1e-6args.learning_rate=5e-5def myschedule(step,args,base_lr):    if step &amp;lt;= 500:        base_lr=args.start_lr+(arg">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="https://summerof15.github.io/2019/12/14/C++ optimization/"/>
+  <link rel="canonical" href="https://summerof15.github.io/2020/06/20/Useful-TensorFlow-2.x-code-segments/"/>
 
 
 
 
 
-  <title>C++ optimization | code cooking</title>
+  <title>Useful TensorFlow 2.x code segments | code cooking</title>
   
 
 
@@ -263,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2019/12/14/C++ optimization/">
+    <link itemprop="mainEntityOfPage" href="https://summerof15.github.io/2020/06/20/Useful-TensorFlow-2.x-code-segments/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Zhang Kai">
@@ -280,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">C++ optimization</h1>
+          <h1 class="post-title" itemprop="name headline">Useful TensorFlow 2.x code segments</h1>
         
 
         <div class="post-meta">
@@ -292,8 +292,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-12-14T15:04:26+02:00">
-                2019-12-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-06-20T10:04:26+02:00">
+                2020-06-20
               </time>
             
 
@@ -335,39 +335,11 @@
       
 
       
-        <h3 id="Simplify-Expressions"><a href="#Simplify-Expressions" class="headerlink" title="Simplify Expressions"></a>Simplify Expressions</h3><ul>
-<li>Use less multification/division and more plus/minus. For example,</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">y=a*x*x*x+b*x*x+c*x+d;<span class="comment">//6 multification</span></span><br><span class="line"><span class="comment">// ==&gt;</span></span><br><span class="line">y=((a*x+b)*x+c)*x+d; <span class="comment">//3 multification</span></span><br></pre></td></tr></table></figure>
-<ul>
-<li><p>Use more <strong>int</strong> instead of <strong>float</strong></p>
+        <h2 id="Useful-TensorFlow-2-x-code-segments"><a href="#Useful-TensorFlow-2-x-code-segments" class="headerlink" title="Useful TensorFlow 2.x code segments"></a>Useful TensorFlow 2.x code segments</h2><h3 id="learning-rate-warm-up"><a href="#learning-rate-warm-up" class="headerlink" title="learning rate warm up"></a>learning rate warm up</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">args.start_lr=<span class="number">1e-6</span></span><br><span class="line">args.learning_rate=<span class="number">5e-5</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">myschedule</span><span class="params">(step,args,base_lr)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> step &lt;= <span class="number">500</span>:</span><br><span class="line">        base_lr=args.start_lr+(args.learning_rate-args.start_lr)*step/float(<span class="number">500</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        <span class="keyword">if</span> (step + <span class="number">1</span>) % (<span class="number">0.6</span> * args.iter_max) == <span class="number">0</span>:</span><br><span class="line">            base_lr = base_lr / <span class="number">5</span></span><br><span class="line">        <span class="keyword">if</span> (step + <span class="number">1</span>) % (<span class="number">0.8</span> * args.iter_max) == <span class="number">0</span>:</span><br><span class="line">            base_lr = base_lr / <span class="number">5</span></span><br><span class="line">    <span class="keyword">return</span> base_lr</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="Group-Constants-Together"><a href="#Group-Constants-Together" class="headerlink" title="Group Constants Together"></a>Group Constants Together</h3></li>
-<li><p>Always group constant expressions together with parentheses, or put them on the left side of the expression. Use a <strong>const</strong> variable or put them in a <strong>constexpr</strong> function.</p>
-</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">seconds=<span class="number">24</span>*days*<span class="number">60</span>*<span class="number">60</span>;</span><br><span class="line"><span class="comment">// ==&gt;</span></span><br><span class="line">seconds=<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>*days; <span class="comment">// or</span></span><br><span class="line"><span class="keyword">const</span> a=<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>;</span><br><span class="line">seconds=a*days;</span><br></pre></td></tr></table></figure>
-<h3 id="Use-Less-Expensive-Operators"><a href="#Use-Less-Expensive-Operators" class="headerlink" title="Use Less-Expensive Operators"></a>Use Less-Expensive Operators</h3><ul>
-<li><p>Use <strong>shift</strong> instead of <strong>multiplication</strong>. For example,</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x*<span class="number">4</span>;</span><br><span class="line"><span class="comment">// ==&gt;</span></span><br><span class="line">x&lt;&lt;<span class="number">2</span>;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>Rewrite a <strong>multiplication</strong> into a sequence of <strong>shifts</strong> and <strong>adds</strong>.</p>
-</li>
-</ul>
-<h3 id="Double-May-Be-Faster-than-Float"><a href="#Double-May-Be-Faster-than-Float" class="headerlink" title="Double May Be Faster than Float"></a>Double May Be Faster than Float</h3><ul>
-<li><strong>Double</strong> floating -point computations were faster than <strong>float</strong> floating -point computations.</li>
-</ul>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> d, t, a = <span class="number">-9.8</span>, v0 = <span class="number">0.0</span>, d0 = <span class="number">100.0</span>; <span class="comment">// 1000w iterations: 1.685s</span></span><br><span class="line"><span class="keyword">for</span> (t = <span class="number">0.0</span>; t &lt; <span class="number">3.01</span>; t++)</span><br><span class="line">&#123;</span><br><span class="line">    d = a * t * t + v0 * t + d0;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// is faster than</span></span><br><span class="line"><span class="keyword">float</span> d, t, a = <span class="number">-9.8</span>, v0 = <span class="number">0.0</span>, d0 = <span class="number">100.0</span>; <span class="comment">// 1000w iterations: 2.102s</span></span><br><span class="line"><span class="keyword">for</span> (t = <span class="number">0.0</span>; t &lt; <span class="number">3.01</span>; t++)</span><br><span class="line">&#123;</span><br><span class="line">    d = a * t * t + v0 * t + d0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Optimize-Control-Flow-Idioms"><a href="#Optimize-Control-Flow-Idioms" class="headerlink" title="Optimize Control Flow Idioms"></a>Optimize Control Flow Idioms</h3><ul>
-<li>In any case, the compiler never emits code for a <strong>switch</strong> statement that is slower than an equivalent <strong>if-then</strong> statement.</li>
-</ul>
-<h3 id="Use-Virtual-Functions-Instead-of-switch-or-if"><a href="#Use-Virtual-Functions-Instead-of-switch-or-if" class="headerlink" title="Use Virtual Functions Instead of switch or if"></a>Use Virtual Functions Instead of switch or if</h3><ul>
-<li><p>In the case of polymorphic behavior in a program, if we want a discriminator variable that told what the particular <em>struct</em> or <em>union</em> represented. For example,</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (p-&gt;animalType == TIGER) &#123;</span><br><span class="line">	tiger_pounce(p-&gt;tiger);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (p-&gt;animalType == RABBIT) &#123;</span><br><span class="line">	rabit_hop(p-&gt;rabbit);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span> (...)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>can be changed to </p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Animal::move()</span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;animalType == TIGER) &#123;</span><br><span class="line">		pounce();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (<span class="keyword">this</span>-&gt;animalType == RABBIT) &#123;</span><br><span class="line">        hop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> <span class="keyword">if</span> (...)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="update-learning-rate-in-each-epoch"><a href="#update-learning-rate-in-each-epoch" class="headerlink" title="update learning rate in each epoch"></a>update learning rate in each epoch</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> epoch <span class="keyword">in</span> range(args.iter_max):</span><br><span class="line">        lr=myschedule(epoch,args,lr)</span><br><span class="line">        optimizer = tf.keras.optimizers.Adam(learning_rate=lr)</span><br><span class="line">        image_batch,label_batch = train_data.next_batch_finetune()</span><br><span class="line">        <span class="keyword">with</span> tf.GradientTape() <span class="keyword">as</span> tape:</span><br><span class="line">            y_hat = model(image_batch)</span><br><span class="line">            r_loss=mse(y_hat, label_batch)</span><br><span class="line">            loss = r_loss</span><br><span class="line">        grads=tape.gradient(loss,model.variables)</span><br><span class="line">        optimizer.apply_gradients(zip(grads,model.variables))</span><br></pre></td></tr></table></figure>
+<h3 id="print-time-stamp-during-training"><a href="#print-time-stamp-during-training" class="headerlink" title="print time stamp during training"></a>print time stamp during training</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@tf.function</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">printbar</span><span class="params">()</span>:</span></span><br><span class="line">    ts = tf.timestamp()</span><br><span class="line">    today_ts = ts%(<span class="number">24</span>*<span class="number">60</span>*<span class="number">60</span>)</span><br><span class="line"></span><br><span class="line">    hour = tf.cast(today_ts//<span class="number">3600</span>+<span class="number">8</span>,tf.int32)%tf.constant(<span class="number">24</span>)</span><br><span class="line">    minite = tf.cast((today_ts%<span class="number">3600</span>)//<span class="number">60</span>,tf.int32)</span><br><span class="line">    second = tf.cast(tf.floor(today_ts%<span class="number">60</span>),tf.int32)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">timeformat</span><span class="params">(m)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> tf.strings.length(tf.strings.format(<span class="string">"&#123;&#125;"</span>,m))==<span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span>(tf.strings.format(<span class="string">"0&#123;&#125;"</span>,m))</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">return</span>(tf.strings.format(<span class="string">"&#123;&#125;"</span>,m))</span><br><span class="line"></span><br><span class="line">    timestring = tf.strings.join([timeformat(hour),timeformat(minite),</span><br><span class="line">                timeformat(second)],separator = <span class="string">":"</span>)</span><br><span class="line">    tf.print(<span class="string">"=========="</span>*<span class="number">8</span>,end = <span class="string">""</span>)</span><br><span class="line">    tf.print(timestring)</span><br></pre></td></tr></table></figure>
+<h3 id="custom-loss"><a href="#custom-loss" class="headerlink" title="custom loss"></a>custom loss</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rank_loss</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="string">"""Layer of Efficient Siamese loss function."""</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">        self.margin = <span class="number">6</span></span><br><span class="line">        print(<span class="string">'*********************** SETTING UP****************'</span>)</span><br><span class="line">        <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">    @tf.function</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">get_rankloss</span><span class="params">(self, p_hat)</span>:</span></span><br><span class="line">        loss=....</span><br><span class="line">        <span class="keyword">return</span> loss</span><br><span class="line">    </span><br><span class="line">rank_loss=Rank_loss()</span><br><span class="line">loss=rank_loss.get_rankloss()</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -385,7 +357,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/C/" rel="tag"># C++</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
       
@@ -398,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/12/06/XV6 SYSTEM(Chapter 0-1 first process)/" rel="next" title="XV6 SYSTEM(Chapter 0-1 first process)">
-                <i class="fa fa-chevron-left"></i> XV6 SYSTEM(Chapter 0-1 first process)
+              <a href="/2020/04/25/Java-web video communication software developing tutorial (1)/" rel="next" title="Java-web video communication software developing tutorial (1)">
+                <i class="fa fa-chevron-left"></i> Java-web video communication software developing tutorial (1)
               </a>
             
           </div>
@@ -407,10 +379,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2020/04/25/Java-web video communication software developing tutorial (1)/" rel="prev" title="Java-web video communication software developing tutorial (1)">
-                Java-web video communication software developing tutorial (1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -554,7 +522,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Simplify-Expressions"><span class="nav-number">1.</span> <span class="nav-text">Simplify Expressions</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Group-Constants-Together"><span class="nav-number">2.</span> <span class="nav-text">Group Constants Together</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Less-Expensive-Operators"><span class="nav-number">3.</span> <span class="nav-text">Use Less-Expensive Operators</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Double-May-Be-Faster-than-Float"><span class="nav-number">4.</span> <span class="nav-text">Double May Be Faster than Float</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Optimize-Control-Flow-Idioms"><span class="nav-number">5.</span> <span class="nav-text">Optimize Control Flow Idioms</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Use-Virtual-Functions-Instead-of-switch-or-if"><span class="nav-number">6.</span> <span class="nav-text">Use Virtual Functions Instead of switch or if</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Useful-TensorFlow-2-x-code-segments"><span class="nav-number">1.</span> <span class="nav-text">Useful TensorFlow 2.x code segments</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#learning-rate-warm-up"><span class="nav-number">1.1.</span> <span class="nav-text">learning rate warm up</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#update-learning-rate-in-each-epoch"><span class="nav-number">1.2.</span> <span class="nav-text">update learning rate in each epoch</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#print-time-stamp-during-training"><span class="nav-number">1.3.</span> <span class="nav-text">print time stamp during training</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#custom-loss"><span class="nav-number">1.4.</span> <span class="nav-text">custom loss</span></a></li></ol></li></ol></div>
             
 
           </div>
