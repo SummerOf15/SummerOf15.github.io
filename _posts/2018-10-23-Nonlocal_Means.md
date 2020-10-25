@@ -4,6 +4,7 @@ title: Non-Local Means
 date: 2018-10-23 16:04:26
 tags: denseCRF
 mathjax: true
+excerpt_separator: <!--more-->
 ---
 #### 1. Definition
 `局部均值(local means):`就是常用的在像素周围开一个窗口，求窗口中像素灰度的平均值，此时权重都为1，常用到的卷积核为：

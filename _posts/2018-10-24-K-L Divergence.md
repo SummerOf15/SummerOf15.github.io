@@ -4,6 +4,7 @@ title: K-L Divergence
 date: 2018-10-24 16:12:26
 mathjax: true
 tags: denseCRF
+excerpt_separator: <!--more-->
 ---
 #### Definition
 在介绍K-L散度之前，首先了解一下信息论以及相关的一些定义。

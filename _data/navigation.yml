@@ -1,11 +1,11 @@
 # main links
 main:
   - title: "About"
-    url: /docs/about/
+    url: /about/
   - title: "Posts"
-    url: /docs/_posts/
+    url: /posts/
   - title: "Publications"
-    url: /docs/publications/
+    url: /publications/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
