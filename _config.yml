@@ -97,7 +97,7 @@ author:
   avatar           : "/assets/images/bio.jpg"
   bio              : "I am interested in exploring the applications of new technology."
   location         : "Paris"
-  email            :kaizhangpostbox@foxmail.com
+  email            : "kaizhangpostbox@foxmail.com"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
