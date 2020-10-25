@@ -129,7 +129,7 @@ footer:
       # url:
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
-      url:"https://summerof15.github.com/"
+      url: "https://www.github.com/summerof15/"
     - label: "GitLab"
       icon: "fab fa-fw fa-gitlab"
       # url:
