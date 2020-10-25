@@ -1,6 +1,7 @@
 ---
-title: CV
-date: 2018-07-18 16:59:47
+permalink: /about/
+title: "About"
+last_modified_at: 2018-07-18 16:59:47
 ---
 
 ## RESEARCH INTERESTS

@@ -1,7 +1,7 @@
 ---
+permalink: /publications/
 title: Publications
-date: 2019-12-06 22:47:38
-type: "publications"
+last_modified_at: 2019-12-06 22:47:38
 comments: false
 ---
 [Road Network Extraction from Satellite Images Using CNN Based Segmentation and Tracing]( https://ieeexplore.ieee.org/abstract/document/8898565 ).

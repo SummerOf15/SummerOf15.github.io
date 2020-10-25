@@ -1,11 +1,11 @@
 # main links
 main:
   - title: "About"
-    url: /about/
+    url: https//summerof15.gihub.io/about/
   - title: "Posts"
     url: /posts/
   - title: "Publications"
-    url: /publications/
+    url: https//summerof15.gihub.io/publications/
   # - title: "Sample Collections"
   #   url: /collection-archive/
   # - title: "Sitemap"
