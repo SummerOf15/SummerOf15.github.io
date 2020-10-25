@@ -17,6 +17,6 @@ Wei, Yao, **Kai Zhang**, and Shunping Ji,
 Tomographic image quality assessment,
 Research internship report.
 **Kai Zhang**
-[[paper](files/TomoIQA_report.pdf)] [[slides]](files/TomoIQA_slides.pdf) [[code]](https://github.com/SummerOf15/TomoIQA)|
+[[paper](assets/files/TomoIQA_report.pdf)] [[slides]](assets/files/TomoIQA_slides.pdf) [[code]](https://github.com/SummerOf15/TomoIQA)|
 
 
