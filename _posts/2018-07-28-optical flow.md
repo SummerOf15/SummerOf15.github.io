@@ -2,7 +2,10 @@
 layout: post
 title: Hight Accuracy Optical Flow Estimation Based on a Theory for Warping_ reading notes
 date: 2018-07-18 16:04:26
-tags: thesis notes
+categories: 
+- thesis notes
+tags: 
+- optical flow
 excerpt_separator: <!--more-->
 ---
 作者采用了一个能量方程计算光流，这个方程基于三个假设：亮度恒定，梯度恒定，时空平滑约束( a discontinuity-preserving spatio-temporal smoothness constraint). 
