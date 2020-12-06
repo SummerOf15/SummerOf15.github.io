@@ -15,8 +15,13 @@ Wei, Yao, **Kai Zhang**, and Shunping Ji,
 [[paper](https://weiyao1996.github.io/files/publications/TGRS_2020.pdf)] [[code]](https://github.com/astro-ck/Road-Extraction)  
 
 Tomographic image quality assessment,  
-Research internship report.  
+Research internship report. (2020)   
 **Kai Zhang**  
-[[paper](assets/files/TomoIQA_report.pdf)] [[slides]](assets/files/TomoIQA_slides.pdf) [[code]](https://github.com/SummerOf15/TomoIQA)   
+[[paper](assets/files/TomoIQA_report.pdf)] [[slides]](assets/files/TomoIQA_slides.pdf) [[code]](https://github.com/SummerOf15/TomoIQA)     
+
+Research on Road Extraction Method of Remote Sensing Image Based on CNN   
+Bachelor Thesis (2019) 
+**Kai Zhang**  
+[[paper](assets/files/bachelor_thesis.pdf)] [[slides]](assets/files/bachelor_report.pdf)   
 
 
